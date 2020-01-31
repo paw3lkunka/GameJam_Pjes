@@ -12,9 +12,11 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance { get; private set; }
 
+    [SerializeField]
     public GameObject loadingScreenPrefab;
     private GameObject loadingScreenInstance;
 
+    [SerializeField]
     public GameObject eventSystem;
 
     private int actualSceneIndex;

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Prefabs/GameManager.prefab.meta
+guid: 56bbb5699afe5654c831549cd484ac1e
+=======
 guid: fe1b64ed77191844e937bce4736cc049
+>>>>>>> 1d342c9d75c6a7fb0b429dd4a858cf5ca19c09dd:Assets/Prefabs/Player.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

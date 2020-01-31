@@ -79,7 +79,10 @@ public class Player : MonoBehaviour
 
     private void MoveUpPerformed(InputAction.CallbackContext ctx)
     {
-        simpleMove.y = 1;
+        if(moveUpEnabled)
+        {
+            simpleMove.y = 1;
+        }
     }
 
     private void MoveUpCanceled(InputAction.CallbackContext ctx)
@@ -89,7 +92,10 @@ public class Player : MonoBehaviour
 
     private void MoveDownPerformed(InputAction.CallbackContext ctx)
     {
-        simpleMove.y = -1;
+        if(moveDownEnabled)
+        {
+            simpleMove.y = -1;
+        }
     }
 
     private void MoveDownCanceled(InputAction.CallbackContext ctx)
@@ -99,7 +105,10 @@ public class Player : MonoBehaviour
 
     private void MoveRightPerformed(InputAction.CallbackContext ctx)
     {
-        simpleMove.x = 1;
+        if(moveRightEnabled)
+        {
+            simpleMove.x = 1;
+        }
     }
 
     private void MoveRightCanceled(InputAction.CallbackContext ctx)
@@ -109,7 +118,10 @@ public class Player : MonoBehaviour
 
     private void MoveLeftPerformed(InputAction.CallbackContext ctx)
     {
-        simpleMove.x = -1;
+        if(moveLeftEnabled)
+        {
+            simpleMove.x = -1;
+        }
     }
 
     private void MoveLeftCanceled(InputAction.CallbackContext ctx)

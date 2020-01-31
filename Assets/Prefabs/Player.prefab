@@ -93,7 +93,7 @@ Rigidbody2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2401692783693617029}
   m_BodyType: 0
-  m_Simulated: 1
+  m_Simulated: 0
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
@@ -144,10 +144,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  jumpForce: 1
+  jumpForce: 12.22
   interactEnabled: 1
-  jumpEnabled: 0
-  moveUpEnabled: 0
-  moveDownEnabled: 0
-  moveRightEnabled: 0
-  moveLeftEnabled: 0
+  jumpEnabled: 1
+  moveUpEnabled: 1
+  moveDownEnabled: 1
+  moveRightEnabled: 1
+  moveLeftEnabled: 1

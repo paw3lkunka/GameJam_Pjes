@@ -5,10 +5,13 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    public float speed;
+    public float speed = 2.0f;
+    public float jumpForce = 1.0f;
+
+    public bool interactEnabled = true;
 
     public bool jumpEnabled = false;
-    public bool interactEnabled = true;
+
     public bool moveUpEnabled = false;
     public bool moveDownEnabled = false;
     public bool moveRightEnabled = false;
@@ -16,25 +19,40 @@ public class Player : MonoBehaviour
 
     private NewInput input;
     private Vector2 simpleMove;
-    private bool isMoving = false;
+
+    private new Rigidbody2D rigidbody;
+
+    #region MonoBehaviourMethods
 
     void Awake()
     {
         input = new NewInput();
+        rigidbody = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        if(isMoving)
+        if(simpleMove.sqrMagnitude > 0)
         {
+            if(simpleMove.sqrMagnitude >= 2)
+            {
+                simpleMove *= 0.7f;
+            }
+            
             var nextPos = transform.position + new Vector3(simpleMove.x, simpleMove.y) * speed;
             Vector3 velocity = new Vector3();
             transform.position = Vector3.SmoothDamp(transform.position, nextPos, ref velocity, 0.12f);
         }
     }
 
-    void OnEnable() // Required for NewInput system.
+    void OnEnable()     // Required for NewInput system.
     {
+        input.Gameplay.Interact.performed += InteractPerformed;
+        input.Gameplay.Interact.Enable();
+
+        input.Gameplay.Jump.performed += JumpPerformed;
+        input.Gameplay.Jump.Enable();
+
         input.Gameplay.MoveUp.performed += MoveUpPerformed;
         input.Gameplay.MoveUp.canceled += MoveUpCanceled;
         input.Gameplay.MoveUp.Enable();
@@ -52,8 +70,14 @@ public class Player : MonoBehaviour
         input.Gameplay.MoveLeft.Enable();
     }
 
-    void OnDisable()
+    void OnDisable()    // Required for NewInput system.
     {
+        input.Gameplay.Interact.performed -= InteractPerformed;
+        input.Gameplay.Interact.Disable();
+
+        input.Gameplay.Jump.performed -= JumpPerformed;
+        input.Gameplay.Jump.Disable();
+
         input.Gameplay.MoveUp.performed -= MoveUpPerformed;
         input.Gameplay.MoveUp.canceled -= MoveUpCanceled;
         input.Gameplay.MoveUp.Disable();
@@ -71,46 +95,73 @@ public class Player : MonoBehaviour
         input.Gameplay.MoveLeft.Disable();
     }
 
+    #endregion
+
     #region InputMethods
+
+    private void InteractPerformed(InputAction.CallbackContext ctx)
+    {
+
+    }
+
+    private void JumpPerformed(InputAction.CallbackContext ctx)
+    {
+        if(jumpEnabled)
+        {
+            rigidbody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+        }
+    }
 
     private void MoveUpPerformed(InputAction.CallbackContext ctx)
     {
-        simpleMove.y = 1;
+        if(moveUpEnabled)
+        {
+            simpleMove.y += 1;
+        }
     }
 
     private void MoveUpCanceled(InputAction.CallbackContext ctx)
     {
-        simpleMove.y = 0;
+        simpleMove.y -= 1;
     }
 
     private void MoveDownPerformed(InputAction.CallbackContext ctx)
     {
-        simpleMove.y = -1;
+        if(moveDownEnabled)
+        {
+            simpleMove.y += -1;
+        }
     }
 
     private void MoveDownCanceled(InputAction.CallbackContext ctx)
     {
-        simpleMove.y = 0;
+        simpleMove.y -= -1;
     }
 
     private void MoveRightPerformed(InputAction.CallbackContext ctx)
     {
-        simpleMove.x = 1;
+        if(moveRightEnabled)
+        {
+            simpleMove.x += 1;
+        }
     }
 
     private void MoveRightCanceled(InputAction.CallbackContext ctx)
     {
-        simpleMove.x = 0;
+        simpleMove.x -= 1;
     }
 
     private void MoveLeftPerformed(InputAction.CallbackContext ctx)
     {
-        simpleMove.x = -1;
+        if(moveLeftEnabled)
+        {
+            simpleMove.x += -1;
+        }
     }
 
     private void MoveLeftCanceled(InputAction.CallbackContext ctx)
     {
-        simpleMove.x = 0;
+        simpleMove.x -= -1;
     }
 
     #endregion

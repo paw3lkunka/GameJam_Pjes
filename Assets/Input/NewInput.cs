@@ -19,17 +19,17 @@ public class @NewInput : IInputActionCollection, IDisposable
             ""id"": ""9697b506-0167-4996-9f29-dc4d304f10ff"",
             ""actions"": [
                 {
-                    ""name"": ""Jump"",
+                    ""name"": ""Interact"",
                     ""type"": ""Button"",
-                    ""id"": ""1330c369-b9c6-4d5b-984d-da97054989d5"",
+                    ""id"": ""4a79a513-c28e-4612-ab75-f8dbf566f444"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Interact"",
+                    ""name"": ""Jump"",
                     ""type"": ""Button"",
-                    ""id"": ""4a79a513-c28e-4612-ab75-f8dbf566f444"",
+                    ""id"": ""1330c369-b9c6-4d5b-984d-da97054989d5"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -76,17 +76,6 @@ public class @NewInput : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ea22c4b0-bc99-4d12-8f9c-b968356f736e"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -177,6 +166,17 @@ public class @NewInput : IInputActionCollection, IDisposable
                     ""action"": ""MoveLeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ea22c4b0-bc99-4d12-8f9c-b968356f736e"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -185,8 +185,8 @@ public class @NewInput : IInputActionCollection, IDisposable
 }");
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
-        m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
         m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
+        m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
         m_Gameplay_MoveUp = m_Gameplay.FindAction("MoveUp", throwIfNotFound: true);
         m_Gameplay_MoveDown = m_Gameplay.FindAction("MoveDown", throwIfNotFound: true);
         m_Gameplay_MoveRight = m_Gameplay.FindAction("MoveRight", throwIfNotFound: true);
@@ -240,8 +240,8 @@ public class @NewInput : IInputActionCollection, IDisposable
     // Gameplay
     private readonly InputActionMap m_Gameplay;
     private IGameplayActions m_GameplayActionsCallbackInterface;
-    private readonly InputAction m_Gameplay_Jump;
     private readonly InputAction m_Gameplay_Interact;
+    private readonly InputAction m_Gameplay_Jump;
     private readonly InputAction m_Gameplay_MoveUp;
     private readonly InputAction m_Gameplay_MoveDown;
     private readonly InputAction m_Gameplay_MoveRight;
@@ -250,8 +250,8 @@ public class @NewInput : IInputActionCollection, IDisposable
     {
         private @NewInput m_Wrapper;
         public GameplayActions(@NewInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
         public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
+        public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
         public InputAction @MoveUp => m_Wrapper.m_Gameplay_MoveUp;
         public InputAction @MoveDown => m_Wrapper.m_Gameplay_MoveDown;
         public InputAction @MoveRight => m_Wrapper.m_Gameplay_MoveRight;
@@ -265,12 +265,12 @@ public class @NewInput : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_GameplayActionsCallbackInterface != null)
             {
-                @Jump.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
-                @Jump.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
-                @Jump.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
                 @Interact.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
+                @Jump.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
                 @MoveUp.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMoveUp;
                 @MoveUp.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMoveUp;
                 @MoveUp.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMoveUp;
@@ -287,12 +287,12 @@ public class @NewInput : IInputActionCollection, IDisposable
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Jump.started += instance.OnJump;
-                @Jump.performed += instance.OnJump;
-                @Jump.canceled += instance.OnJump;
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @Jump.started += instance.OnJump;
+                @Jump.performed += instance.OnJump;
+                @Jump.canceled += instance.OnJump;
                 @MoveUp.started += instance.OnMoveUp;
                 @MoveUp.performed += instance.OnMoveUp;
                 @MoveUp.canceled += instance.OnMoveUp;
@@ -311,8 +311,8 @@ public class @NewInput : IInputActionCollection, IDisposable
     public GameplayActions @Gameplay => new GameplayActions(this);
     public interface IGameplayActions
     {
-        void OnJump(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
         void OnMoveUp(InputAction.CallbackContext context);
         void OnMoveDown(InputAction.CallbackContext context);
         void OnMoveRight(InputAction.CallbackContext context);

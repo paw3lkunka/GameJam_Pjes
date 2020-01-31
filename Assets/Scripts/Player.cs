@@ -6,9 +6,12 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     public float speed = 2.0f;
+    public float jumpForce = 1.0f;
+
+    public bool interactEnabled = true;
 
     public bool jumpEnabled = false;
-    public bool interactEnabled = true;
+
     public bool moveUpEnabled = false;
     public bool moveDownEnabled = false;
     public bool moveRightEnabled = false;
@@ -17,16 +20,21 @@ public class Player : MonoBehaviour
     private NewInput input;
     private Vector2 simpleMove;
 
+    private new Rigidbody2D rigidbody;
+
+    #region MonoBehaviourMethods
+
     void Awake()
     {
         input = new NewInput();
+        rigidbody = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
         if(simpleMove.sqrMagnitude > 0)
         {
-            if(simpleMove.magnitude > 1)
+            if(simpleMove.sqrMagnitude >= 2)
             {
                 simpleMove *= 0.7f;
             }
@@ -37,8 +45,14 @@ public class Player : MonoBehaviour
         }
     }
 
-    void OnEnable() // Required for NewInput system.
+    void OnEnable()     // Required for NewInput system.
     {
+        input.Gameplay.Interact.performed += InteractPerformed;
+        input.Gameplay.Interact.Enable();
+
+        input.Gameplay.Jump.performed += JumpPerformed;
+        input.Gameplay.Jump.Enable();
+
         input.Gameplay.MoveUp.performed += MoveUpPerformed;
         input.Gameplay.MoveUp.canceled += MoveUpCanceled;
         input.Gameplay.MoveUp.Enable();
@@ -56,8 +70,14 @@ public class Player : MonoBehaviour
         input.Gameplay.MoveLeft.Enable();
     }
 
-    void OnDisable()
+    void OnDisable()    // Required for NewInput system.
     {
+        input.Gameplay.Interact.performed -= InteractPerformed;
+        input.Gameplay.Interact.Disable();
+
+        input.Gameplay.Jump.performed -= JumpPerformed;
+        input.Gameplay.Jump.Disable();
+
         input.Gameplay.MoveUp.performed -= MoveUpPerformed;
         input.Gameplay.MoveUp.canceled -= MoveUpCanceled;
         input.Gameplay.MoveUp.Disable();
@@ -75,7 +95,22 @@ public class Player : MonoBehaviour
         input.Gameplay.MoveLeft.Disable();
     }
 
+    #endregion
+
     #region InputMethods
+
+    private void InteractPerformed(InputAction.CallbackContext ctx)
+    {
+
+    }
+
+    private void JumpPerformed(InputAction.CallbackContext ctx)
+    {
+        if(jumpEnabled)
+        {
+            rigidbody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+        }
+    }
 
     private void MoveUpPerformed(InputAction.CallbackContext ctx)
     {

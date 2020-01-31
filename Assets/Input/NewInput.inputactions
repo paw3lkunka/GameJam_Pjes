@@ -6,17 +6,17 @@
             "id": "9697b506-0167-4996-9f29-dc4d304f10ff",
             "actions": [
                 {
-                    "name": "Jump",
+                    "name": "Interact",
                     "type": "Button",
-                    "id": "1330c369-b9c6-4d5b-984d-da97054989d5",
+                    "id": "4a79a513-c28e-4612-ab75-f8dbf566f444",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
                 },
                 {
-                    "name": "Interact",
+                    "name": "Jump",
                     "type": "Button",
-                    "id": "4a79a513-c28e-4612-ab75-f8dbf566f444",
+                    "id": "1330c369-b9c6-4d5b-984d-da97054989d5",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
@@ -63,17 +63,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ea22c4b0-bc99-4d12-8f9c-b968356f736e",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -162,6 +151,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "MoveLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ea22c4b0-bc99-4d12-8f9c-b968356f736e",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

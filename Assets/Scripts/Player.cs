@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
 
     private NewInput input;
     private Vector2 simpleMove;
+    private bool isMoving = false;
 
     void Awake()
     {
@@ -24,10 +25,12 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        var nextPos = transform.position + new Vector3(simpleMove.x, simpleMove.y) * speed;
-        Vector3 velocity = new Vector3();
-
-        transform.position = Vector3.SmoothDamp(transform.position, nextPos, ref velocity, 0.12f);
+        if(isMoving)
+        {
+            var nextPos = transform.position + new Vector3(simpleMove.x, simpleMove.y) * speed;
+            Vector3 velocity = new Vector3();
+            transform.position = Vector3.SmoothDamp(transform.position, nextPos, ref velocity, 0.12f);
+        }
     }
 
     void OnEnable() // Required for NewInput system.
@@ -49,7 +52,7 @@ public class Player : MonoBehaviour
         input.Gameplay.MoveLeft.Enable();
     }
 
-    private void OnDisable()
+    void OnDisable()
     {
         input.Gameplay.MoveUp.performed -= MoveUpPerformed;
         input.Gameplay.MoveUp.canceled -= MoveUpCanceled;

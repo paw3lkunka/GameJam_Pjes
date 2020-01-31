@@ -81,52 +81,52 @@ public class Player : MonoBehaviour
     {
         if(moveUpEnabled)
         {
-            simpleMove.y = 1;
+            simpleMove.y += 1;
         }
     }
 
     private void MoveUpCanceled(InputAction.CallbackContext ctx)
     {
-        simpleMove.y = 0;
+        simpleMove.y -= 1;
     }
 
     private void MoveDownPerformed(InputAction.CallbackContext ctx)
     {
         if(moveDownEnabled)
         {
-            simpleMove.y = -1;
+            simpleMove.y += -1;
         }
     }
 
     private void MoveDownCanceled(InputAction.CallbackContext ctx)
     {
-        simpleMove.y = 0;
+        simpleMove.y -= -1;
     }
 
     private void MoveRightPerformed(InputAction.CallbackContext ctx)
     {
         if(moveRightEnabled)
         {
-            simpleMove.x = 1;
+            simpleMove.x += 1;
         }
     }
 
     private void MoveRightCanceled(InputAction.CallbackContext ctx)
     {
-        simpleMove.x = 0;
+        simpleMove.x -= 1;
     }
 
     private void MoveLeftPerformed(InputAction.CallbackContext ctx)
     {
         if(moveLeftEnabled)
         {
-            simpleMove.x = -1;
+            simpleMove.x += -1;
         }
     }
 
     private void MoveLeftCanceled(InputAction.CallbackContext ctx)
     {
-        simpleMove.x = 0;
+        simpleMove.x -= -1;
     }
 
     #endregion

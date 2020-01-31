@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    public float speed;
+    public float speed = 2.0f;
 
     public bool jumpEnabled = false;
     public bool interactEnabled = true;
@@ -16,7 +16,6 @@ public class Player : MonoBehaviour
 
     private NewInput input;
     private Vector2 simpleMove;
-    private bool isMoving = false;
 
     void Awake()
     {
@@ -25,8 +24,13 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if(isMoving)
+        if(simpleMove.sqrMagnitude > 0)
         {
+            if(simpleMove.magnitude > 1)
+            {
+                simpleMove *= 0.7f;
+            }
+            
             var nextPos = transform.position + new Vector3(simpleMove.x, simpleMove.y) * speed;
             Vector3 velocity = new Vector3();
             transform.position = Vector3.SmoothDamp(transform.position, nextPos, ref velocity, 0.12f);

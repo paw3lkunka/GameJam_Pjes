@@ -43,7 +43,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         loadingScreenInstance = Instantiate(loadingScreenPrefab, Vector3.zero, Quaternion.identity);
-        loadingScreenInstance.SetActive(false);
         DontDestroyOnLoad(loadingScreenInstance);
         DontDestroyOnLoad(eventSystem);
         DontDestroyOnLoad(buttonCanvas);
@@ -64,15 +63,12 @@ public class GameManager : MonoBehaviour
         Debug.Log(actualSceneIndex.ToString());
         if(actualSceneIndex < sceneNames.Count)
         {
-            loadingScreenInstance.SetActive(true);
-            SceneManager.LoadSceneAsync(sceneNames[actualSceneIndex]);
-            Wait();
-            loadingScreenInstance.SetActive(false);
+            loadingScreenInstance.GetComponent<LoadingScreen>().Show(SceneManager.LoadSceneAsync(sceneNames[actualSceneIndex]));
         }
         else if(actualSceneIndex == sceneNames.Count)
         {
             FlushUselessShit();
-            SceneManager.LoadSceneAsync(mainMenuSceneName);
+            loadingScreenInstance.GetComponent<LoadingScreen>().Show(SceneManager.LoadSceneAsync(mainMenuSceneName));
             actualSceneIndex = -1;
         }
         else
@@ -84,15 +80,9 @@ public class GameManager : MonoBehaviour
 
     private void FlushUselessShit()
     {
-        Destroy(loadingScreenInstance);
         Destroy(eventSystem);
         Destroy(buttonCanvas);
         Destroy(gameObject);
-    }
-
-    IEnumerator Wait()
-    {
-        yield return new WaitForSeconds(2);
     }
     #endregion
 

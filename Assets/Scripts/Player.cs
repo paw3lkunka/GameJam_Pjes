@@ -16,7 +16,6 @@ public class Player : MonoBehaviour
 
     private NewInput input;
     private Vector2 simpleMove;
-    private bool isMoving = false;
 
     void Awake()
     {

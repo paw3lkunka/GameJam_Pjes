@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    public float speed;
+    public float speed = 2.0f;
 
     public bool jumpEnabled = false;
     public bool interactEnabled = true;
@@ -16,7 +16,6 @@ public class Player : MonoBehaviour
 
     private NewInput input;
     private Vector2 simpleMove;
-    private bool isMoving = false;
 
     void Awake()
     {
@@ -25,8 +24,13 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if(isMoving)
+        if(simpleMove.sqrMagnitude > 0)
         {
+            if(simpleMove.magnitude > 1)
+            {
+                simpleMove *= 0.7f;
+            }
+            
             var nextPos = transform.position + new Vector3(simpleMove.x, simpleMove.y) * speed;
             Vector3 velocity = new Vector3();
             transform.position = Vector3.SmoothDamp(transform.position, nextPos, ref velocity, 0.12f);
@@ -75,7 +79,10 @@ public class Player : MonoBehaviour
 
     private void MoveUpPerformed(InputAction.CallbackContext ctx)
     {
-        simpleMove.y = 1;
+        if(moveUpEnabled)
+        {
+            simpleMove.y = 1;
+        }
     }
 
     private void MoveUpCanceled(InputAction.CallbackContext ctx)
@@ -85,7 +92,10 @@ public class Player : MonoBehaviour
 
     private void MoveDownPerformed(InputAction.CallbackContext ctx)
     {
-        simpleMove.y = -1;
+        if(moveDownEnabled)
+        {
+            simpleMove.y = -1;
+        }
     }
 
     private void MoveDownCanceled(InputAction.CallbackContext ctx)
@@ -95,7 +105,10 @@ public class Player : MonoBehaviour
 
     private void MoveRightPerformed(InputAction.CallbackContext ctx)
     {
-        simpleMove.x = 1;
+        if(moveRightEnabled)
+        {
+            simpleMove.x = 1;
+        }
     }
 
     private void MoveRightCanceled(InputAction.CallbackContext ctx)
@@ -105,7 +118,10 @@ public class Player : MonoBehaviour
 
     private void MoveLeftPerformed(InputAction.CallbackContext ctx)
     {
-        simpleMove.x = -1;
+        if(moveLeftEnabled)
+        {
+            simpleMove.x = -1;
+        }
     }
 
     private void MoveLeftCanceled(InputAction.CallbackContext ctx)

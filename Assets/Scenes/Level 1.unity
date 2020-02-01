@@ -440,7 +440,7 @@ GameObject:
   - component: {fileID: 438913494}
   - component: {fileID: 438913493}
   - component: {fileID: 438913492}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -978,7 +978,7 @@ GameObject:
   - component: {fileID: 975198460}
   - component: {fileID: 975198459}
   - component: {fileID: 975198463}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Finish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1156,7 +1156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1159993432}
   - component: {fileID: 1159993431}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}

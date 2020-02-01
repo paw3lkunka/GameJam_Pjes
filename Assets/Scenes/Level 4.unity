@@ -292,6 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136da8eef2b40ad49ba0c115bd1ebdd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialGravity: 0
   phisicalObjects:
   - {fileID: 0}
   gravity: 0
@@ -376,6 +377,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5732464268191293545, guid: 56bbb5699afe5654c831549cd484ac1e,
+        type: 3}
+      propertyPath: jumpEnabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56bbb5699afe5654c831549cd484ac1e, type: 3}
 --- !u!1 &427859435
@@ -410,7 +416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28711b2e6f7e6bd4daec8e9393528896, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: 118.98
+  direction: 130.9
 --- !u!120 &427859437
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -449,10 +455,10 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Positions:
   - {x: 4.5, y: 1.37, z: 0}
-  - {x: 3.0433674, y: 4, z: 0}
+  - {x: 2.0519884, y: 4.196063, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -461,7 +467,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.0819664
+        value: 0.2593929
         inSlope: 0
         outSlope: 0
         tangentMode: 0

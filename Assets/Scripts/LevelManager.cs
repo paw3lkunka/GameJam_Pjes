@@ -13,9 +13,32 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            DestroyImmediate(gameObject);
+            if (instance != this)
+            {
+                DestroyImmediate(gameObject);
+                return;
+            }
         }
     }
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            if (instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+        }
+
+        Gravity = Physics2D.gravity != Vector2.zero;
+    }
+
 
     public Collider2D finish;
     public List<Rigidbody2D> phisicalObjects;

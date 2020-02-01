@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     public bool moveRightEnabled = false;
     public bool moveLeftEnabled = false;
 
-    [HideInInspector]
+    //[HideInInspector]
     public List<Switch> switchesInRange;
 
     private NewInput input;

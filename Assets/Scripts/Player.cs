@@ -17,12 +17,13 @@ public class Player : MonoBehaviour
     public bool moveRightEnabled = false;
     public bool moveLeftEnabled = false;
 
+    [HideInInspector]
+    public List<Switch> switchesInRange;
+
     private NewInput input;
     private Vector2 simpleMove;
 
     private new Rigidbody2D rigidbody;
-
-    private List<Switch> switchesInRange;
 
     #region MonoBehaviourMethods
 

@@ -16,13 +16,23 @@ public class OnOffSwitch : Switch
     {
         if (State)
         {
-            TurnOff.Invoke();
-            State = false;
+            Off();
         }
         else
         {
-            TurnOn.Invoke();
-            State = true;
+            On();
         }
+    }
+
+    public void On()
+    {
+        TurnOn.Invoke();
+        State = true;
+    }
+
+    public void Off()
+    {
+        TurnOff.Invoke();
+        State = false;
     }
 }

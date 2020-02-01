@@ -18,11 +18,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     public GameObject eventSystem;
+    private GameObject eventSystemInstance;
 
     private int actualSceneIndex;
-
-    //temporary
-    public GameObject buttonCanvas;
 
     #region MonoBehaviour
     private void Awake()
@@ -43,9 +41,9 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         loadingScreenInstance = Instantiate(loadingScreenPrefab, Vector3.zero, Quaternion.identity);
+        eventSystemInstance = Instantiate(eventSystem);
         DontDestroyOnLoad(loadingScreenInstance);
         DontDestroyOnLoad(eventSystem);
-        DontDestroyOnLoad(buttonCanvas);
         actualSceneIndex = -1;
     }
 
@@ -63,7 +61,7 @@ public class GameManager : MonoBehaviour
         Debug.Log(actualSceneIndex.ToString());
         if(actualSceneIndex < sceneNames.Count)
         {
-            loadingScreenInstance.GetComponent<LoadingScreen>().Show(SceneManager.LoadSceneAsync(sceneNames[actualSceneIndex]));
+            loadingScreenInstance.GetComponent<LoadingScreen>().Show( SceneManager.LoadSceneAsync(sceneNames[actualSceneIndex]) );
         }
         else if(actualSceneIndex == sceneNames.Count)
         {
@@ -78,10 +76,19 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void ReloadLevel()
+    {
+        SceneManager.LoadSceneAsync(sceneNames[actualSceneIndex]);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
     private void FlushUselessShit()
     {
-        Destroy(eventSystem);
-        Destroy(buttonCanvas);
+        Destroy(eventSystemInstance);
         Destroy(gameObject);
     }
     #endregion

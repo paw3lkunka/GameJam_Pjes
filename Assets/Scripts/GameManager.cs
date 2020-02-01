@@ -29,12 +29,9 @@ public class GameManager : MonoBehaviour
 
     public int LevelsCompleted { get; private set; }
 
-    public NewInput GameInput { get; private set; }
-
     #region MonoBehaviour
     private void Awake()
     {
-        GameInput = new NewInput();
         if (Instance == null)
         {
             Instance = this;

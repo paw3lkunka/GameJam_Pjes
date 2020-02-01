@@ -97,7 +97,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 100
-  m_LinearDrag: 1.2
+  m_LinearDrag: 5
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2.5
-  jumpForce: 500
+  jumpForce: 1000
   jumpLimit: 2
   interactEnabled: 1
   jumpEnabled: 1

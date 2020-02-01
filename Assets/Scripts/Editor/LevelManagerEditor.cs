@@ -11,14 +11,14 @@ public class LevelManagerEditor : Editor
         base.OnInspectorGUI();
 
         // Function buttons
-        bool gravity = LevelManager.instance.Gravity;
+        bool gravity = LevelManager.Instance.Gravity;
         if( GUILayout.Button( string.Format("Turn {0} Gravity", gravity ? "off" : "on") ) )
         {
-            LevelManager.instance.Gravity = !gravity;
+            LevelManager.Instance.Gravity = !gravity;
         }
         if (GUILayout.Button("Stop"))
         {
-            LevelManager.instance.Stop();
+            LevelManager.Instance.Stop();
         }
 
     }

@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class LevelManager : MonoBehaviour
 {
     public bool initialGravity;
-    public static LevelManager instance;
+    public static LevelManager Instance { get; private set; }
     public List<Rigidbody2D> phisicalObjects;
 
     public bool Gravity
@@ -34,16 +34,23 @@ public class LevelManager : MonoBehaviour
     #region MonoBehaviour
 
     private void OnValidate()
-    {
-        if (instance == null)
+  {
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
         else
         {
-            if (instance != this)
+            if (Instance != this)
             {
-                DestroyImmediate(gameObject);
+                if (Application.isPlaying)
+                {
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    DestroyImmediate(gameObject);
+                }
                 return;
             }
         }
@@ -51,20 +58,20 @@ public class LevelManager : MonoBehaviour
 
     private void Awake()
     {
-        input = GameManager.Instance.GameInput;
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
         else
         {
-            if (instance != this)
+            if (Instance != this)
             {
                 Destroy(gameObject);
                 return;
             }
         }
         
+        input = new NewInput();
         Gravity = initialGravity;
         Physics2D.gravity = (Gravity ? 1f : 0f) * Vector2.down * 9.81f;
     }
@@ -74,7 +81,7 @@ public class LevelManager : MonoBehaviour
         phisicalObjects = new List<Rigidbody2D>(FindObjectsOfType<Rigidbody2D>());
     }
 
-    private void OnDestroy() => instance = null;
+    private void OnDestroy() => Instance = null;
 
     private void OnEnable()
     {

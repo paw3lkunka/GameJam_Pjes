@@ -10,7 +10,7 @@ public class OnOffSwitch : Switch
     public UnityEvent TurnOn;
     public UnityEvent TurnOff;
 
-    public void Use()
+    public override void Use()
     {
         if (State)
         {

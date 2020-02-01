@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
 
     private new Rigidbody2D rigidbody;
 
-    private List<Switch> switchesInRange;
+    public List<Switch> switchesInRange;
 
     #region MonoBehaviourMethods
 

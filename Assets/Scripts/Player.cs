@@ -26,13 +26,14 @@ public class Player : MonoBehaviour
     [SerializeField] private bool moveLeftEnabled = false;
     public bool MoveLeftEnabled { get => moveLeftEnabled; set => moveLeftEnabled = value; }
 
-    //[HideInInspector]
+    [HideInInspector]
     public List<Switch> switchesInRange;
 
     private NewInput input;
     private Vector2 simpleMove;
 
     private new Rigidbody2D rigidbody;
+    
     #region MonoBehaviourMethods
 
     void Awake()
@@ -62,6 +63,9 @@ public class Player : MonoBehaviour
         input.Gameplay.Move.performed += MovePerformed;
         input.Gameplay.Move.canceled += MoveCanceled;
         input.Gameplay.Move.Enable();
+
+        input.Gameplay.ReloadLevel.performed += ReloadLevel;
+        input.Gameplay.ReloadLevel.Enable();
     }
 
     void OnDisable()    // Required for NewInput system.
@@ -75,6 +79,9 @@ public class Player : MonoBehaviour
         input.Gameplay.Move.performed -= MovePerformed;
         input.Gameplay.Move.canceled -= MoveCanceled;
         input.Gameplay.Move.Disable();
+
+        input.Gameplay.ReloadLevel.performed -= ReloadLevel;
+        input.Gameplay.ReloadLevel.Disable();
     }
 
     #endregion
@@ -83,7 +90,7 @@ public class Player : MonoBehaviour
 
     private void InteractPerformed(InputAction.CallbackContext ctx)
     {
-        if(interactEnabled)
+        if(interactEnabled && switchesInRange.Count > 0)
         {
             var closestSwitch = switchesInRange[0];
             var minDistance = Vector3.Distance(transform.position, switchesInRange[0].gameObject.transform.position);
@@ -139,6 +146,11 @@ public class Player : MonoBehaviour
     private void MoveCanceled(InputAction.CallbackContext ctx)
     {
         simpleMove = new Vector2();
+    }
+
+    private void ReloadLevel(InputAction.CallbackContext ctx)
+    {
+        GameManager.Instance.ReloadLevel();
     }
 
     #endregion

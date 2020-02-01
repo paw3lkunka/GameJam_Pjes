@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class LevelManager : MonoBehaviour
 {
+    public bool initialGravity;
     public static LevelManager instance;
     public List<Rigidbody2D> phisicalObjects;
 
@@ -16,7 +17,7 @@ public class LevelManager : MonoBehaviour
             gravity = value;
             if (gravity)
             {
-                Physics2D.gravity = Vector2.down*9.81f;
+                Physics2D.gravity = Vector2.down * 9.81f;
             }
             else
             {
@@ -64,9 +65,15 @@ public class LevelManager : MonoBehaviour
                 return;
             }
         }
-
-        Gravity = Physics2D.gravity != Vector2.zero;
+        Gravity = initialGravity;
+        Physics2D.gravity = (Gravity ? 1f : 0f) * Vector2.down * 9.81f;
     }
+
+    private void Start()
+    {
+        phisicalObjects = new List<Rigidbody2D>(FindObjectsOfType<Rigidbody2D>());
+    }
+
     private void OnDestroy() => instance = null;
 
     private void OnEnable()

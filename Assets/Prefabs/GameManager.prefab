@@ -52,3 +52,5 @@ MonoBehaviour:
     type: 3}
   eventSystem: {fileID: 6671530064670126115, guid: 89bc176eea94e894c94fcb9b968dd63d,
     type: 3}
+  guiPrefab: {fileID: 5875683726190041767, guid: 2ce60cd30be577342bfb7feaed424ee0,
+    type: 3}

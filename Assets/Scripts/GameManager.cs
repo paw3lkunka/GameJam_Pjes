@@ -20,6 +20,10 @@ public class GameManager : MonoBehaviour
     public GameObject eventSystem;
     private GameObject eventSystemInstance;
 
+    [SerializeField]
+    public GameObject guiPrefab;
+    private GameObject guiInstance;
+
     private int actualSceneIndex;
 
     #region MonoBehaviour
@@ -35,7 +39,6 @@ public class GameManager : MonoBehaviour
             Destroy(this);
             return;
         }
-        
     }
 
     private void Start()
@@ -43,8 +46,11 @@ public class GameManager : MonoBehaviour
         loadingScreenInstance = Instantiate(loadingScreenPrefab, Vector3.zero, Quaternion.identity);
         eventSystemInstance = Instantiate(eventSystem);
         DontDestroyOnLoad(loadingScreenInstance);
-        DontDestroyOnLoad(eventSystem);
+        DontDestroyOnLoad(eventSystemInstance);
         actualSceneIndex = -1;
+        guiInstance = Instantiate(guiPrefab);
+        DontDestroyOnLoad(guiInstance);
+        guiInstance.SetActive(false);
     }
 
     private void Update()
@@ -58,15 +64,17 @@ public class GameManager : MonoBehaviour
     public void NextLevel()
     {
         actualSceneIndex += 1;
-        Debug.Log(actualSceneIndex.ToString());
         if(actualSceneIndex < sceneNames.Count)
         {
+            guiInstance.SetActive(false);
             loadingScreenInstance.GetComponent<LoadingScreen>().Show( SceneManager.LoadSceneAsync(sceneNames[actualSceneIndex]) );
+            guiInstance.SetActive(true);
         }
         else if(actualSceneIndex == sceneNames.Count)
         {
             FlushUselessShit();
             loadingScreenInstance.GetComponent<LoadingScreen>().Show(SceneManager.LoadSceneAsync(mainMenuSceneName));
+            guiInstance.SetActive(false);
             actualSceneIndex = -1;
         }
         else
@@ -90,6 +98,7 @@ public class GameManager : MonoBehaviour
     {
         Destroy(eventSystemInstance);
         Destroy(gameObject);
+        Destroy(guiInstance);
     }
     #endregion
 

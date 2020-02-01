@@ -13,8 +13,7 @@ public class Laser : MonoBehaviour
     {
         lineRenderer = GetComponent<LineRenderer>();
         RaycastHit2D hit = Physics2D.Raycast(transform.position, DirVector, 100);
-        lineRenderer.SetPosition(0, transform.position);
-        lineRenderer.SetPosition(1, hit.collider != null ? (Vector3)hit.point : transform.position + (Vector3)DirVector * 100);
+        setLine(hit);
     }
 
     private void Start()
@@ -25,8 +24,7 @@ public class Laser : MonoBehaviour
     void Update()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, DirVector, float.PositiveInfinity);
-        lineRenderer.SetPosition(0, transform.position);
-        lineRenderer.SetPosition(1, hit.collider != null ? (Vector3)hit.point : transform.position + (Vector3)DirVector*100 );
+        setLine(hit);
         try
         {
             Destroy(hit.collider.GetComponent<Player>().gameObject);
@@ -37,4 +35,10 @@ public class Laser : MonoBehaviour
     }
 
     private Vector2 DirVector => new Vector2(Mathf.Cos(direction * Mathf.Deg2Rad), Mathf.Sin(direction * Mathf.Deg2Rad));
+    private void setLine(RaycastHit2D hit)
+    {
+        lineRenderer.SetPosition(0, transform.position);
+        lineRenderer.SetPosition(1, hit.collider != null ? (Vector3)hit.point + (Vector3)((hit.point-(Vector2)transform.position).normalized * lineRenderer.widthCurve.keys[0].value) : transform.position + (Vector3)DirVector * 100);
+    }
+
 }

@@ -51,7 +51,7 @@ public class LevelManager : MonoBehaviour
 
     private void Awake()
     {
-        input = GameManager.Instance.GameInput;
+        input = new NewInput();
         if (instance == null)
         {
             instance = this;

@@ -1,22 +1,54 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
-public class RandomizeInputSwitch : OnOffSwitch
+public class RandomizeInputSwitch : Switch
 {
 
-    private NewInput input;
-
-    private string[] keyboardPaths = { "<Keyboard>/w", "<Keyboard>/s", "<Keyboard>/a", "<Keyboard>/d" };
+    private readonly string[] keyboardPaths = { "<Keyboard>/w", "<Keyboard>/s", "<Keyboard>/a", "<Keyboard>/d" };
     private string[] randomizedKeyboardBindings = new string[4];
     private bool[] usedIndexes;
-    private string[] gamePadPaths = { "<Gamepad>/leftStick/up", "<Gamepad>/leftstick/down", "<Gamepad>/leftstick/left", "<Gamepad>/leftstick/right" };
+    private readonly string[] gamePadPaths = { "<Gamepad>/leftStick/up", "<Gamepad>/leftstick/down", "<Gamepad>/leftstick/left", "<Gamepad>/leftstick/right" };
     private string[] randomizedGamepadBindings = new string[4];
+
+    private System.Random rand;
+
+
+    [field: SerializeField, ReadOnly]
+    public bool State { get; protected set; }
+
+    public UnityEvent TurnOn;
+    public UnityEvent TurnOff;
+
+    [ContextMenu("Use")]
+    public override void Use()
+    {
+        if (State)
+        {
+            Off();
+        }
+        else
+        {
+            On();
+        }
+    }
+
+    public void On()
+    {
+        TurnOn.Invoke();
+        State = true;
+    }
+
+    public void Off()
+    {
+        TurnOff.Invoke();
+        State = false;
+    }
 
     private void Start()
     {
+        rand = new System.Random();
         usedIndexes = new bool[4];
-        input = GameManager.Instance.GameInput;
-        for(int i = 0; i < 4; ++i)
+        for (int i = 0; i < 4; ++i)
         {
             usedIndexes[i] = true;
         }
@@ -25,7 +57,6 @@ public class RandomizeInputSwitch : OnOffSwitch
 
     public void Randomize()
     {
-        System.Random rand = new System.Random();
         bool flag = true;
         for (int i = 0; i < 4; ++i)
         {
@@ -48,7 +79,7 @@ public class RandomizeInputSwitch : OnOffSwitch
 
     private void BindRandom()
     {
-        InputAction temp = input.Gameplay.Move;
+        InputAction temp = LevelManager.instance.input.Gameplay.Move;
         int inputKeyboardIndex = 0;
         int inputGamePadIndex = 0;
         for (int i = 0; i < temp.bindings.Count; ++i)
@@ -70,9 +101,18 @@ public class RandomizeInputSwitch : OnOffSwitch
         }
     }
 
-    public void Unbind()
+    public void ReloadBindings()
     {
-        InputAction temp = input.Gameplay.Move;
+        Unbind();
+    }
+
+    private void Unbind()
+    {
+        InputAction temp = LevelManager.instance.input.Gameplay.Move;
         InputActionRebindingExtensions.RemoveAllBindingOverrides(temp);
+        for (int i = 0; i < 4; ++i)
+        {
+            usedIndexes[i] = true;
+        }
     }
 }

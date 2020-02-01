@@ -166,7 +166,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3490071609972798636}
-        m_MethodName: Unbind
+        m_MethodName: ReloadBindings
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

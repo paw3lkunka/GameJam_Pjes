@@ -75,7 +75,6 @@ public class GameManager : MonoBehaviour
         if ( actualSceneIndex > LevelsCompleted)
         {
             LevelsCompleted++;
-            Debug.Log( "Next Level: " + actualSceneIndex.ToString());
         }
         if (actualSceneIndex < levelScenesNames.Count)
         {
@@ -105,7 +104,6 @@ public class GameManager : MonoBehaviour
         if(index < levelScenesNames.Count)
         {
             actualSceneIndex = index;
-            Debug.Log("Load scene: " + index.ToString());
             loadingScreenInstance.GetComponent<LoadingScreen>().Show(SceneManager.LoadSceneAsync(levelScenesNames[index]));
             guiInstance.SetActive(true);
         }

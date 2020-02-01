@@ -191,7 +191,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136da8eef2b40ad49ba0c115bd1ebdd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  finish: {fileID: 0}
   phisicalObjects:
   - {fileID: 0}
   gravity: 1
@@ -207,7 +206,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &427821834 stripped
 Transform:
@@ -370,7 +369,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &629904139
 PrefabInstance:
@@ -752,6 +751,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5732464268191293545, guid: 56bbb5699afe5654c831549cd484ac1e,
+        type: 3}
+      propertyPath: jumpLimit
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56bbb5699afe5654c831549cd484ac1e, type: 3}

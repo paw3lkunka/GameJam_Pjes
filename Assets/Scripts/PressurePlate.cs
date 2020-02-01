@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PressurePlate : MonoBehaviour
 {
+    [SerializeField]
+    private Sprite plateImage;
+    [SerializeField]
+    private Sprite pressedPlateImage;
     private int itemsPressingCount = 0;
 
     void OnTriggerEnter2D()
@@ -12,6 +16,7 @@ public class PressurePlate : MonoBehaviour
         if(itemsPressingCount == 1)
         {
             GetComponent<OnOffSwitch>().On();
+            GetComponent<SpriteRenderer>().sprite = pressedPlateImage;
         }
     }
 
@@ -21,6 +26,7 @@ public class PressurePlate : MonoBehaviour
         if(itemsPressingCount == 0)
         {
             GetComponent<OnOffSwitch>().Off();
+            GetComponent<SpriteRenderer>().sprite = plateImage;
         }
     }
 }

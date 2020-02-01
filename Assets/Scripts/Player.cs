@@ -150,6 +150,7 @@ public class Player : MonoBehaviour
 
     private void ReloadLevel(InputAction.CallbackContext ctx)
     {
+        Debug.Log("ReloadxDDDDDDDDDDDDDDDDDDDDDDD");
         GameManager.Instance.ReloadLevel();
     }
 

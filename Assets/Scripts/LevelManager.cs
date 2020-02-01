@@ -38,6 +38,7 @@ public class LevelManager : MonoBehaviour
 
         Gravity = Physics2D.gravity != Vector2.zero;
     }
+    private void OnDestroy() => instance = null;
 
     public List<Rigidbody2D> phisicalObjects;
 
@@ -63,6 +64,7 @@ public class LevelManager : MonoBehaviour
             }
         }
     }
+
 
     public void Stop()
     {

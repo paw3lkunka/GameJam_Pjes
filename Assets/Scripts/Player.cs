@@ -5,8 +5,11 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    public float speed = 2.0f;
-    public float jumpForce = 1.0f;
+    [SerializeField] private float speed = 2.0f;
+    
+    [SerializeField] private float jumpForce = 1.0f;
+
+    [SerializeField] private int jumpLimit = 1;
 
     [SerializeField] private bool interactEnabled = true;
     public bool InteractEnabled { get => interactEnabled; set => interactEnabled = value; }
@@ -26,14 +29,14 @@ public class Player : MonoBehaviour
     [SerializeField] private bool moveLeftEnabled = false;
     public bool MoveLeftEnabled { get => moveLeftEnabled; set => moveLeftEnabled = value; }
 
+    [SerializeField] private LayerMask notPlayerLayerMask;
+
     [HideInInspector]
     public List<Switch> switchesInRange;
 
     private NewInput input;
     private Vector2 simpleMove;
 
-    [SerializeField]
-    private int jumpLimit;
     private int currJumpLimit;
 
     private new Rigidbody2D rigidbody;
@@ -50,13 +53,11 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if(simpleMove.sqrMagnitude > 0)
+        if (simpleMove.sqrMagnitude > 0)
         {
             var nextPos = transform.position + new Vector3(simpleMove.x, simpleMove.y) * speed * Time.deltaTime;
             transform.position = nextPos;
         }
-
-        IsGrounded();
     }
 
     void OnEnable()     // Required for NewInput system.
@@ -117,7 +118,12 @@ public class Player : MonoBehaviour
 
     private void JumpPerformed(InputAction.CallbackContext ctx)
     {
-        if(jumpEnabled && currJumpLimit > 0)
+        if (IsGrounded())
+        {
+            currJumpLimit = jumpLimit;
+        }
+
+        if (jumpEnabled && currJumpLimit > 0)
         {
             rigidbody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
             currJumpLimit--;
@@ -161,9 +167,9 @@ public class Player : MonoBehaviour
 
     private bool IsGrounded()
     {
-        var raycastHit2d = Physics2D.BoxCast(boxCollider2d.bounds.center, boxCollider2d.bounds.size, 0.0f, Vector2.down * 0.1f);
-        Debug.Log(raycastHit2d.collider);
-        return false;
+        var raycastHit2d = Physics2D.BoxCast(boxCollider2d.bounds.center, boxCollider2d.bounds.size, 0.0f, Vector2.down, 0.01f, notPlayerLayerMask);
+        //Debug.Log("Ground: " + raycastHit2d.collider);
+        return raycastHit2d.collider != null;
     }
 
 }

@@ -51,8 +51,7 @@ public class LevelManager : MonoBehaviour
 
     private void Awake()
     {
-        input = new NewInput();
-
+        input = GameManager.Instance.GameInput;
         if (instance == null)
         {
             instance = this;
@@ -65,6 +64,7 @@ public class LevelManager : MonoBehaviour
                 return;
             }
         }
+        
         Gravity = initialGravity;
         Physics2D.gravity = (Gravity ? 1f : 0f) * Vector2.down * 9.81f;
     }

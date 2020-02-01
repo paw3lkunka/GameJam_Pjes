@@ -46,7 +46,7 @@ public class Door : MonoBehaviour
     private void Move()
     {
         transform.position = Vector2.SmoothDamp(transform.position, targetPosition, ref currVelocity, doorOpeningTime);
-        if(currVelocity == new Vector2()) // If speed is 0.
+        if(currVelocity == new Vector2()) // If (speed is 0).
         {
             isMoving = false;
         }

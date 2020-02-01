@@ -29,10 +29,13 @@ public class GameManager : MonoBehaviour
 
     public int LevelsCompleted { get; private set; }
 
+    public NewInput GameInput { get; private set; }
+
     #region MonoBehaviour
     private void Awake()
     {
-        if(Instance == null)
+        GameInput = new NewInput();
+        if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(Instance);
@@ -57,7 +60,7 @@ public class GameManager : MonoBehaviour
         guiInstance.SetActive(false);
 
         actualSceneIndex = -1;
-        LevelsCompleted = 0;
+        LevelsCompleted = 15;
     }
 
     private void Update()

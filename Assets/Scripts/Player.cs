@@ -32,6 +32,10 @@ public class Player : MonoBehaviour
     private NewInput input;
     private Vector2 simpleMove;
 
+    [SerializeField]
+    private int jumpLimit;
+    private int currJumpLimit;
+
     private new Rigidbody2D rigidbody;
     
     #region MonoBehaviour
@@ -39,6 +43,7 @@ public class Player : MonoBehaviour
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        currJumpLimit = jumpLimit;
     }
 
     void Update()
@@ -108,9 +113,10 @@ public class Player : MonoBehaviour
 
     private void JumpPerformed(InputAction.CallbackContext ctx)
     {
-        if(jumpEnabled)
+        if(jumpEnabled && currJumpLimit > 0)
         {
             rigidbody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            currJumpLimit--;
         }
     }
 

@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
 
     private new Rigidbody2D rigidbody;
 
-    private List<GameObject> switchesInRange;
+    private List<Switch> switchesInRange;
 
     #region MonoBehaviourMethods
 
@@ -77,11 +77,11 @@ public class Player : MonoBehaviour
         if(interactEnabled)
         {
             var closestSwitch = switchesInRange[0];
-            var minDistance = Vector3.Distance(transform.position, switchesInRange[0].transform.position);
+            var minDistance = Vector3.Distance(transform.position, switchesInRange[0].gameObject.transform.position);
             
             for(int i = 1; i < switchesInRange.Count; i++)
             {
-                var nextDistance = Vector3.Distance(transform.position, switchesInRange[i].transform.position);
+                var nextDistance = Vector3.Distance(transform.position, switchesInRange[i].gameObject.transform.position);
 
                 if(minDistance > nextDistance)
                 {
@@ -90,7 +90,7 @@ public class Player : MonoBehaviour
                 }
             }
 
-            closestSwitch.GetComponent<ISwitch>().Use();
+            closestSwitch.Use();
         }
     }
 

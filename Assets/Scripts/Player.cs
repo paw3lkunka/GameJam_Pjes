@@ -34,11 +34,10 @@ public class Player : MonoBehaviour
 
     private new Rigidbody2D rigidbody;
     
-    #region MonoBehaviourMethods
+    #region MonoBehaviour
 
     void Awake()
     {
-        input = new NewInput();
         rigidbody = GetComponent<Rigidbody2D>();
     }
 
@@ -53,6 +52,8 @@ public class Player : MonoBehaviour
 
     void OnEnable()     // Required for NewInput system.
     {
+        input = LevelManager.instance.input;
+
         input.Gameplay.Interact.performed += InteractPerformed;
         input.Gameplay.Interact.Enable();
 
@@ -62,9 +63,6 @@ public class Player : MonoBehaviour
         input.Gameplay.Move.performed += MovePerformed;
         input.Gameplay.Move.canceled += MoveCanceled;
         input.Gameplay.Move.Enable();
-
-        input.Gameplay.ReloadLevel.performed += ReloadLevel;
-        input.Gameplay.ReloadLevel.Enable();
     }
 
     void OnDisable()    // Required for NewInput system.
@@ -79,8 +77,7 @@ public class Player : MonoBehaviour
         input.Gameplay.Move.canceled -= MoveCanceled;
         input.Gameplay.Move.Disable();
 
-        input.Gameplay.ReloadLevel.performed -= ReloadLevel;
-        input.Gameplay.ReloadLevel.Disable();
+        input = null;
     }
 
     #endregion
@@ -145,11 +142,6 @@ public class Player : MonoBehaviour
     private void MoveCanceled(InputAction.CallbackContext ctx)
     {
         simpleMove = new Vector2();
-    }
-
-    private void ReloadLevel(InputAction.CallbackContext ctx)
-    {
-        GameManager.Instance.ReloadLevel();
     }
 
     #endregion

@@ -18,11 +18,13 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     public GameObject eventSystem;
+    private GameObject eventSystemInstance;
+
+    [SerializeField]
+    public GameObject guiPrefab;
+    private GameObject guiInstance;
 
     private int actualSceneIndex;
-
-    //temporary
-    public GameObject buttonCanvas;
 
     #region MonoBehaviour
     private void Awake()
@@ -37,17 +39,18 @@ public class GameManager : MonoBehaviour
             Destroy(this);
             return;
         }
-        
     }
 
     private void Start()
     {
         loadingScreenInstance = Instantiate(loadingScreenPrefab, Vector3.zero, Quaternion.identity);
-        loadingScreenInstance.SetActive(false);
+        eventSystemInstance = Instantiate(eventSystem);
         DontDestroyOnLoad(loadingScreenInstance);
-        DontDestroyOnLoad(eventSystem);
-        DontDestroyOnLoad(buttonCanvas);
+        DontDestroyOnLoad(eventSystemInstance);
         actualSceneIndex = -1;
+        guiInstance = Instantiate(guiPrefab);
+        DontDestroyOnLoad(guiInstance);
+        guiInstance.SetActive(false);
     }
 
     private void Update()
@@ -61,18 +64,17 @@ public class GameManager : MonoBehaviour
     public void NextLevel()
     {
         actualSceneIndex += 1;
-        Debug.Log(actualSceneIndex.ToString());
         if(actualSceneIndex < sceneNames.Count)
         {
-            loadingScreenInstance.SetActive(true);
-            SceneManager.LoadSceneAsync(sceneNames[actualSceneIndex]);
-            Wait();
-            loadingScreenInstance.SetActive(false);
+            guiInstance.SetActive(false);
+            loadingScreenInstance.GetComponent<LoadingScreen>().Show( SceneManager.LoadSceneAsync(sceneNames[actualSceneIndex]) );
+            guiInstance.SetActive(true);
         }
         else if(actualSceneIndex == sceneNames.Count)
         {
             FlushUselessShit();
-            SceneManager.LoadSceneAsync(mainMenuSceneName);
+            loadingScreenInstance.GetComponent<LoadingScreen>().Show(SceneManager.LoadSceneAsync(mainMenuSceneName));
+            guiInstance.SetActive(false);
             actualSceneIndex = -1;
         }
         else
@@ -82,17 +84,21 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private void FlushUselessShit()
+    public void ReloadLevel()
     {
-        Destroy(loadingScreenInstance);
-        Destroy(eventSystem);
-        Destroy(buttonCanvas);
-        Destroy(gameObject);
+        SceneManager.LoadSceneAsync(sceneNames[actualSceneIndex]);
     }
 
-    IEnumerator Wait()
+    public void ExitGame()
     {
-        yield return new WaitForSeconds(2);
+        Application.Quit();
+    }
+
+    private void FlushUselessShit()
+    {
+        Destroy(eventSystemInstance);
+        Destroy(gameObject);
+        Destroy(guiInstance);
     }
     #endregion
 

@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
 
     private new Rigidbody2D rigidbody;
 
+    private List<Switch> switchesInRange;
+
     #region MonoBehaviourMethods
 
     void Awake()
@@ -34,11 +36,6 @@ public class Player : MonoBehaviour
     {
         if(simpleMove.sqrMagnitude > 0)
         {
-            if(simpleMove.sqrMagnitude >= 2)
-            {
-                simpleMove *= 0.7f;
-            }
-            
             var nextPos = transform.position + new Vector3(simpleMove.x, simpleMove.y) * speed;
             Vector3 velocity = new Vector3();
             transform.position = Vector3.SmoothDamp(transform.position, nextPos, ref velocity, 0.12f);
@@ -53,21 +50,9 @@ public class Player : MonoBehaviour
         input.Gameplay.Jump.performed += JumpPerformed;
         input.Gameplay.Jump.Enable();
 
-        input.Gameplay.MoveUp.performed += MoveUpPerformed;
-        input.Gameplay.MoveUp.canceled += MoveUpCanceled;
-        input.Gameplay.MoveUp.Enable();
-
-        input.Gameplay.MoveDown.performed += MoveDownPerformed;
-        input.Gameplay.MoveDown.canceled += MoveDownCanceled;
-        input.Gameplay.MoveDown.Enable();
-
-        input.Gameplay.MoveRight.performed += MoveRightPerformed;
-        input.Gameplay.MoveRight.canceled += MoveRightCanceled;
-        input.Gameplay.MoveRight.Enable();
-
-        input.Gameplay.MoveLeft.performed += MoveLeftPerformed;
-        input.Gameplay.MoveLeft.canceled += MoveLeftCanceled;
-        input.Gameplay.MoveLeft.Enable();
+        input.Gameplay.Move.performed += MovePerformed;
+        input.Gameplay.Move.canceled += MoveCanceled;
+        input.Gameplay.Move.Enable();
     }
 
     void OnDisable()    // Required for NewInput system.
@@ -78,21 +63,9 @@ public class Player : MonoBehaviour
         input.Gameplay.Jump.performed -= JumpPerformed;
         input.Gameplay.Jump.Disable();
 
-        input.Gameplay.MoveUp.performed -= MoveUpPerformed;
-        input.Gameplay.MoveUp.canceled -= MoveUpCanceled;
-        input.Gameplay.MoveUp.Disable();
-
-        input.Gameplay.MoveDown.performed -= MoveDownPerformed;
-        input.Gameplay.MoveDown.canceled -= MoveDownCanceled;
-        input.Gameplay.MoveDown.Disable();
-
-        input.Gameplay.MoveRight.performed -= MoveRightPerformed;
-        input.Gameplay.MoveRight.canceled -= MoveRightCanceled;
-        input.Gameplay.MoveRight.Disable();
-
-        input.Gameplay.MoveLeft.performed -= MoveLeftPerformed;
-        input.Gameplay.MoveLeft.canceled -= MoveLeftCanceled;
-        input.Gameplay.MoveLeft.Disable();
+        input.Gameplay.Move.performed -= MovePerformed;
+        input.Gameplay.Move.canceled -= MoveCanceled;
+        input.Gameplay.Move.Disable();
     }
 
     #endregion
@@ -101,7 +74,24 @@ public class Player : MonoBehaviour
 
     private void InteractPerformed(InputAction.CallbackContext ctx)
     {
+        if(interactEnabled)
+        {
+            var closestSwitch = switchesInRange[0];
+            var minDistance = Vector3.Distance(transform.position, switchesInRange[0].gameObject.transform.position);
+            
+            for(int i = 1; i < switchesInRange.Count; i++)
+            {
+                var nextDistance = Vector3.Distance(transform.position, switchesInRange[i].gameObject.transform.position);
 
+                if(minDistance > nextDistance)
+                {
+                    minDistance = nextDistance;
+                    closestSwitch = switchesInRange[i];
+                }
+            }
+
+            closestSwitch.Use();
+        }
     }
 
     private void JumpPerformed(InputAction.CallbackContext ctx)
@@ -112,56 +102,34 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void MoveUpPerformed(InputAction.CallbackContext ctx)
+    private void MovePerformed(InputAction.CallbackContext ctx)
     {
-        if(moveUpEnabled)
+        simpleMove = ctx.ReadValue<Vector2>();
+
+        if(!moveUpEnabled && simpleMove.y > 0)
         {
-            simpleMove.y += 1;
+            simpleMove.y = 0;
+        }
+
+        if(!moveDownEnabled && simpleMove.y < 0)
+        {
+            simpleMove.y = 0;
+        }
+
+        if(!moveLeftEnabled && simpleMove.x < 0)
+        {
+            simpleMove.x = 0;
+        }
+
+        if(!moveRightEnabled && simpleMove.x > 0)
+        {
+            simpleMove.x = 0;
         }
     }
-
-    private void MoveUpCanceled(InputAction.CallbackContext ctx)
+    
+    private void MoveCanceled(InputAction.CallbackContext ctx)
     {
-        simpleMove.y -= 1;
-    }
-
-    private void MoveDownPerformed(InputAction.CallbackContext ctx)
-    {
-        if(moveDownEnabled)
-        {
-            simpleMove.y += -1;
-        }
-    }
-
-    private void MoveDownCanceled(InputAction.CallbackContext ctx)
-    {
-        simpleMove.y -= -1;
-    }
-
-    private void MoveRightPerformed(InputAction.CallbackContext ctx)
-    {
-        if(moveRightEnabled)
-        {
-            simpleMove.x += 1;
-        }
-    }
-
-    private void MoveRightCanceled(InputAction.CallbackContext ctx)
-    {
-        simpleMove.x -= 1;
-    }
-
-    private void MoveLeftPerformed(InputAction.CallbackContext ctx)
-    {
-        if(moveLeftEnabled)
-        {
-            simpleMove.x += -1;
-        }
-    }
-
-    private void MoveLeftCanceled(InputAction.CallbackContext ctx)
-    {
-        simpleMove.x -= -1;
+        simpleMove = new Vector2();
     }
 
     #endregion

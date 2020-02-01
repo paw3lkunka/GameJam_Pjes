@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class InstantActionSwitch : MonoBehaviour, ISwitch
+public class InstantActionSwitch : Switch
 {
     public UnityEvent OnPush;
     public void Use()

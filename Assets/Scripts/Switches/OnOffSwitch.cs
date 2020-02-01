@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class OnOffSwitch : MonoBehaviour, ISwitch
+public class OnOffSwitch : Switch
 {
     public bool State { get; private set; }
 

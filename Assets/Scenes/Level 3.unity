@@ -292,6 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136da8eef2b40ad49ba0c115bd1ebdd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialGravity: 0
   phisicalObjects:
   - {fileID: 0}
   gravity: 0
@@ -404,7 +405,7 @@ PrefabInstance:
     - target: {fileID: 5732464268191293545, guid: 56bbb5699afe5654c831549cd484ac1e,
         type: 3}
       propertyPath: jumpEnabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56bbb5699afe5654c831549cd484ac1e, type: 3}

@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
     {
         if (simpleMove.sqrMagnitude > 0)
         {
-            if(LevelManager.instance.Gravity)
+            if(LevelManager.Instance.Gravity)
             {
                 var rbVel = rigidbody.velocity;
                 rbVel.x = simpleMove.x * speed;
@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
 
     void OnEnable()     // Required for NewInput system.
     {
-        input = LevelManager.instance.input;
+        input = LevelManager.Instance.input;
 
         input.Gameplay.Interact.performed += InteractPerformed;
         input.Gameplay.Interact.Enable();

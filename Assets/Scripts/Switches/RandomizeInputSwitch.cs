@@ -79,7 +79,7 @@ public class RandomizeInputSwitch : Switch
 
     private void BindRandom()
     {
-        InputAction temp = LevelManager.instance.input.Gameplay.Move;
+        InputAction temp = LevelManager.Instance.input.Gameplay.Move;
         int inputKeyboardIndex = 0;
         int inputGamePadIndex = 0;
         for (int i = 0; i < temp.bindings.Count; ++i)
@@ -108,7 +108,7 @@ public class RandomizeInputSwitch : Switch
 
     private void Unbind()
     {
-        InputAction temp = LevelManager.instance.input.Gameplay.Move;
+        InputAction temp = LevelManager.Instance.input.Gameplay.Move;
         InputActionRebindingExtensions.RemoveAllBindingOverrides(temp);
         for (int i = 0; i < 4; ++i)
         {

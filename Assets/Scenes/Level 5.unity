@@ -882,7 +882,7 @@ PrefabInstance:
     - target: {fileID: 5732464268191293545, guid: 56bbb5699afe5654c831549cd484ac1e,
         type: 3}
       propertyPath: moveDownEnabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5732464268191293545, guid: 56bbb5699afe5654c831549cd484ac1e,
         type: 3}
@@ -908,11 +908,6 @@ PrefabInstance:
         type: 3}
       propertyPath: moveRightEnabled
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5732464268191293545, guid: 56bbb5699afe5654c831549cd484ac1e,
-        type: 3}
-      propertyPath: jumpForce
-      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56bbb5699afe5654c831549cd484ac1e, type: 3}
@@ -2592,7 +2587,7 @@ PrefabInstance:
     - target: {fileID: 6950033768163742855, guid: b1c216a5ffea1094fa87116057c074fe,
         type: 3}
       propertyPath: m_Name
-      value: OnOffSwitch
+      value: DownSwitch
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}

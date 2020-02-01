@@ -178,8 +178,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Exit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6ff32b0c3e80a8c46b05166b38b965fd, type: 2}
+  m_sharedMaterial: {fileID: 1002296193039273739, guid: 6ff32b0c3e80a8c46b05166b38b965fd,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -444,8 +445,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Start
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6ff32b0c3e80a8c46b05166b38b965fd, type: 2}
+  m_sharedMaterial: {fileID: 1002296193039273739, guid: 6ff32b0c3e80a8c46b05166b38b965fd,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -599,8 +601,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Title
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6ff32b0c3e80a8c46b05166b38b965fd, type: 2}
+  m_sharedMaterial: {fileID: 1002296193039273739, guid: 6ff32b0c3e80a8c46b05166b38b965fd,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1180,6 +1183,66 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8585885334094559363, guid: 97b19a2bb50dc884d8a7de7868635605,
+        type: 3}
+      propertyPath: levelScenesNames.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8585885334094559363, guid: 97b19a2bb50dc884d8a7de7868635605,
+        type: 3}
+      propertyPath: levelScenesNames.Array.data[4]
+      value: Level 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8585885334094559363, guid: 97b19a2bb50dc884d8a7de7868635605,
+        type: 3}
+      propertyPath: levelScenesNames.Array.data[5]
+      value: Level 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8585885334094559363, guid: 97b19a2bb50dc884d8a7de7868635605,
+        type: 3}
+      propertyPath: levelScenesNames.Array.data[6]
+      value: Level 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8585885334094559363, guid: 97b19a2bb50dc884d8a7de7868635605,
+        type: 3}
+      propertyPath: levelScenesNames.Array.data[7]
+      value: Level 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8585885334094559363, guid: 97b19a2bb50dc884d8a7de7868635605,
+        type: 3}
+      propertyPath: levelScenesNames.Array.data[8]
+      value: Level 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8585885334094559363, guid: 97b19a2bb50dc884d8a7de7868635605,
+        type: 3}
+      propertyPath: levelScenesNames.Array.data[9]
+      value: Level 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8585885334094559363, guid: 97b19a2bb50dc884d8a7de7868635605,
+        type: 3}
+      propertyPath: levelScenesNames.Array.data[10]
+      value: Level 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8585885334094559363, guid: 97b19a2bb50dc884d8a7de7868635605,
+        type: 3}
+      propertyPath: levelScenesNames.Array.data[11]
+      value: Level 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8585885334094559363, guid: 97b19a2bb50dc884d8a7de7868635605,
+        type: 3}
+      propertyPath: levelScenesNames.Array.data[12]
+      value: Level 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8585885334094559363, guid: 97b19a2bb50dc884d8a7de7868635605,
+        type: 3}
+      propertyPath: levelScenesNames.Array.data[13]
+      value: Level 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8585885334094559363, guid: 97b19a2bb50dc884d8a7de7868635605,
+        type: 3}
+      propertyPath: levelScenesNames.Array.data[14]
+      value: Level 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97b19a2bb50dc884d8a7de7868635605, type: 3}

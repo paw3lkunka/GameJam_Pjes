@@ -37,9 +37,8 @@ public class Player : MonoBehaviour
     {
         if(simpleMove.sqrMagnitude > 0)
         {
-            var nextPos = transform.position + new Vector3(simpleMove.x, simpleMove.y) * speed;
-            Vector3 velocity = new Vector3();
-            transform.position = Vector3.SmoothDamp(transform.position, nextPos, ref velocity, 0.12f);
+            var nextPos = transform.position + new Vector3(simpleMove.x, simpleMove.y) * speed * Time.deltaTime;
+            transform.position = nextPos;
         }
     }
 

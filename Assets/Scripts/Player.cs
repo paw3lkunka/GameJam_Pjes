@@ -16,13 +16,13 @@ public class Player : MonoBehaviour
     public bool moveDownEnabled = false;
     public bool moveRightEnabled = false;
     public bool moveLeftEnabled = false;
+    [HideInInspector]
+    public List<GameObject> switchesInRange;
 
     private NewInput input;
     private Vector2 simpleMove;
 
     private new Rigidbody2D rigidbody;
-
-    private List<GameObject> switchesInRange;
 
     #region MonoBehaviourMethods
 
@@ -90,7 +90,7 @@ public class Player : MonoBehaviour
                 }
             }
 
-            closestSwitch.GetComponent<ISwitch>().Use();
+            closestSwitch.GetComponent<Switch>().Use();
         }
     }
 

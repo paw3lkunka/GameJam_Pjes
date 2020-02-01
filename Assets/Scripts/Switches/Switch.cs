@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Switch : MonoBehaviour
 {
-    public void Use();
+    public abstract void Use();
 
     void OnTriggerEnter2D(Collider2D col)
     {

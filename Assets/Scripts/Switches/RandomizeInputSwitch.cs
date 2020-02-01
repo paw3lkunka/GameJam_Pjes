@@ -20,7 +20,6 @@ public class RandomizeInputSwitch : OnOffSwitch
         {
             usedIndexes[i] = true;
         }
-        Randomize();
     }
 
 
@@ -74,24 +73,6 @@ public class RandomizeInputSwitch : OnOffSwitch
     public void Unbind()
     {
         InputAction temp = input.Gameplay.Move;
-        int inputKeyboardIndex = 0;
-        int inputGamePadIndex = 0;
-        for (int i = 0; i < temp.bindings.Count; ++i)
-        {
-            if (temp.bindings[i].path.Contains("<Keyboard>"))
-            {
-                InputBinding newBinding = temp.bindings[i];
-                newBinding.overridePath = keyboardPaths[inputKeyboardIndex];
-                inputKeyboardIndex++;
-                InputActionRebindingExtensions.ApplyBindingOverride(temp, i, newBinding);
-            }
-            else if (temp.bindings[i].path.Contains("<Gamepad>"))
-            {
-                InputBinding newBinding = temp.bindings[i];
-                newBinding.overridePath = gamePadPaths[inputGamePadIndex];
-                inputGamePadIndex++;
-                InputActionRebindingExtensions.ApplyBindingOverride(temp, i, newBinding);
-            }
-        }
+        InputActionRebindingExtensions.RemoveAllBindingOverrides(temp);
     }
 }

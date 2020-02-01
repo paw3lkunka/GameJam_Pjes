@@ -5,11 +5,13 @@ using UnityEngine.Events;
 
 public class OnOffSwitch : Switch
 {
+    [field:SerializeField,ReadOnly]
     public bool State { get; private set; }
 
     public UnityEvent TurnOn;
     public UnityEvent TurnOff;
 
+    [ContextMenu("Use")]
     public override void Use()
     {
         if (State)

@@ -8,14 +8,23 @@ public class Player : MonoBehaviour
     public float speed = 2.0f;
     public float jumpForce = 1.0f;
 
-    public bool interactEnabled = true;
+    [SerializeField] private bool interactEnabled = true;
+    public bool InteractEnabled { get => interactEnabled; set => interactEnabled = value; }
 
-    public bool jumpEnabled = false;
+    [SerializeField] private bool jumpEnabled = false;
+    public bool JumpEnabled { get => jumpEnabled; set => jumpEnabled = value; }
 
-    public bool moveUpEnabled = false;
-    public bool moveDownEnabled = false;
-    public bool moveRightEnabled = false;
-    public bool moveLeftEnabled = false;
+    [SerializeField] private bool moveUpEnabled = false;
+    public bool MoveUpEnabled { get => moveUpEnabled; set => moveUpEnabled = value; }
+
+    [SerializeField] private bool moveDownEnabled = false;
+    public bool MoveDownEnabled { get => moveDownEnabled; set => moveDownEnabled = value; }
+
+    [SerializeField] private bool moveRightEnabled = false;
+    public bool MoveRightEnabled { get => moveRightEnabled; set => moveRightEnabled = value; }
+
+    [SerializeField] private bool moveLeftEnabled = false;
+    public bool MoveLeftEnabled { get => moveLeftEnabled; set => moveLeftEnabled = value; }
 
     [HideInInspector]
     public List<Switch> switchesInRange;
@@ -24,11 +33,11 @@ public class Player : MonoBehaviour
     private Vector2 simpleMove;
 
     private new Rigidbody2D rigidbody;
-    #region MonoBehaviourMethods
+    
+    #region MonoBehaviour
 
     void Awake()
     {
-        input = new NewInput();
         rigidbody = GetComponent<Rigidbody2D>();
     }
 
@@ -36,14 +45,15 @@ public class Player : MonoBehaviour
     {
         if(simpleMove.sqrMagnitude > 0)
         {
-            var nextPos = transform.position + new Vector3(simpleMove.x, simpleMove.y) * speed;
-            Vector3 velocity = new Vector3();
-            transform.position = Vector3.SmoothDamp(transform.position, nextPos, ref velocity, 0.12f);
+            var nextPos = transform.position + new Vector3(simpleMove.x, simpleMove.y) * speed * Time.deltaTime;
+            transform.position = nextPos;
         }
     }
 
     void OnEnable()     // Required for NewInput system.
     {
+        input = LevelManager.instance.input;
+
         input.Gameplay.Interact.performed += InteractPerformed;
         input.Gameplay.Interact.Enable();
 
@@ -66,6 +76,8 @@ public class Player : MonoBehaviour
         input.Gameplay.Move.performed -= MovePerformed;
         input.Gameplay.Move.canceled -= MoveCanceled;
         input.Gameplay.Move.Disable();
+
+        input = null;
     }
 
     #endregion
@@ -74,7 +86,7 @@ public class Player : MonoBehaviour
 
     private void InteractPerformed(InputAction.CallbackContext ctx)
     {
-        if(interactEnabled)
+        if(interactEnabled && switchesInRange.Count > 0)
         {
             var closestSwitch = switchesInRange[0];
             var minDistance = Vector3.Distance(transform.position, switchesInRange[0].gameObject.transform.position);
@@ -109,21 +121,25 @@ public class Player : MonoBehaviour
         if(!moveUpEnabled && simpleMove.y > 0)
         {
             simpleMove.y = 0;
+            simpleMove.x /= 0.7f;
         }
 
         if(!moveDownEnabled && simpleMove.y < 0)
         {
             simpleMove.y = 0;
+            simpleMove.x /= 0.7f;
         }
 
         if(!moveLeftEnabled && simpleMove.x < 0)
         {
             simpleMove.x = 0;
+            simpleMove.y /= 0.7f;
         }
 
         if(!moveRightEnabled && simpleMove.x > 0)
         {
             simpleMove.x = 0;
+            simpleMove.y /= 0.7f;
         }
     }
     
@@ -131,7 +147,6 @@ public class Player : MonoBehaviour
     {
         simpleMove = new Vector2();
     }
-
     #endregion
 
 }

@@ -1,30 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance;
-    private void OnValidate()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            DestroyImmediate(gameObject);
-        }
-    }
-
-    public Collider2D finish;
     public List<Rigidbody2D> phisicalObjects;
-
-    [SerializeField,ReadOnly]
-    private bool gravity;
-
-
-    // Methodes for use in switches events
 
     public bool Gravity
     {
@@ -32,9 +14,9 @@ public class LevelManager : MonoBehaviour
         set
         {
             gravity = value;
-            if ( gravity )
+            if (gravity)
             {
-                Physics2D.gravity = Vector2.down;
+                Physics2D.gravity = Vector2.down*9.81f;
             }
             else
             {
@@ -43,6 +25,63 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    [SerializeField, ReadOnly]
+    private bool gravity;
+
+    public NewInput input;
+
+    #region MonoBehaviour
+
+    private void OnValidate()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            if (instance != this)
+            {
+                DestroyImmediate(gameObject);
+                return;
+            }
+        }
+    }
+
+    private void Awake()
+    {
+        input = new NewInput();
+
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            if (instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+        }
+
+        Gravity = Physics2D.gravity != Vector2.zero;
+    }
+    private void OnDestroy() => instance = null;
+
+    private void OnEnable()
+    {
+        input.Gameplay.ReloadLevel.performed += ReloadLevel;
+        input.Gameplay.ReloadLevel.Enable();
+    }
+
+    private void OnDisable()
+    {
+        input.Gameplay.ReloadLevel.performed -= ReloadLevel;
+        input.Gameplay.ReloadLevel.Disable();
+    }
+
+    #endregion
     public void Stop()
     {
         phisicalObjects.ForEach( (rBody) => 
@@ -52,5 +91,13 @@ public class LevelManager : MonoBehaviour
         });
     }
 
+    #region InputMethods
+    
+    private void ReloadLevel(InputAction.CallbackContext ctx)
+    {
+        GameManager.Instance.ReloadLevel();
+    }
+
+    #endregion
 
 }

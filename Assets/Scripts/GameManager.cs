@@ -6,8 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public string mainMenuSceneName;
+    public string levelSelectSceneName;
     [SerializeField]
-    public List<string> sceneNames;
+    public List<string> levelScenesNames;
     
 
     public static GameManager Instance { get; private set; }
@@ -64,13 +65,12 @@ public class GameManager : MonoBehaviour
     public void NextLevel()
     {
         actualSceneIndex += 1;
-        if(actualSceneIndex < sceneNames.Count)
+        if(actualSceneIndex < levelScenesNames.Count)
         {
-            guiInstance.SetActive(false);
-            loadingScreenInstance.GetComponent<LoadingScreen>().Show( SceneManager.LoadSceneAsync(sceneNames[actualSceneIndex]) );
+            loadingScreenInstance.GetComponent<LoadingScreen>().Show( SceneManager.LoadSceneAsync(levelScenesNames[actualSceneIndex]) );
             guiInstance.SetActive(true);
         }
-        else if(actualSceneIndex == sceneNames.Count)
+        else if(actualSceneIndex == levelScenesNames.Count)
         {
             FlushUselessShit();
             loadingScreenInstance.GetComponent<LoadingScreen>().Show(SceneManager.LoadSceneAsync(mainMenuSceneName));
@@ -84,9 +84,23 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void LevelSelector()
+    {
+        SceneManager.LoadScene(levelSelectSceneName);
+    }
+
+    public void LoadLevel(int index)
+    {
+        if(index < levelScenesNames.Count)
+        {
+            actualSceneIndex = index - 1;
+            NextLevel();
+        }
+    }
+
     public void ReloadLevel()
     {
-        SceneManager.LoadSceneAsync(sceneNames[actualSceneIndex]);
+        SceneManager.LoadSceneAsync(levelScenesNames[actualSceneIndex]);
     }
 
     public void ExitGame()
@@ -101,5 +115,4 @@ public class GameManager : MonoBehaviour
         Destroy(guiInstance);
     }
     #endregion
-
 }

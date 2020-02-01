@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenuSceneName: MainMenu
-  sceneNames:
+  levelSelectSceneName: LevelSelect
+  levelScenesNames:
   - Level 1
   - Level 2
   - Level 3

@@ -16,8 +16,9 @@ public class Player : MonoBehaviour
     public bool moveDownEnabled = false;
     public bool moveRightEnabled = false;
     public bool moveLeftEnabled = false;
+
     [HideInInspector]
-    public List<GameObject> switchesInRange;
+    public List<Switch> switchesInRange;
 
     private NewInput input;
     private Vector2 simpleMove;
@@ -77,11 +78,11 @@ public class Player : MonoBehaviour
         if(interactEnabled)
         {
             var closestSwitch = switchesInRange[0];
-            var minDistance = Vector3.Distance(transform.position, switchesInRange[0].transform.position);
+            var minDistance = Vector3.Distance(transform.position, switchesInRange[0].gameObject.transform.position);
             
             for(int i = 1; i < switchesInRange.Count; i++)
             {
-                var nextDistance = Vector3.Distance(transform.position, switchesInRange[i].transform.position);
+                var nextDistance = Vector3.Distance(transform.position, switchesInRange[i].gameObject.transform.position);
 
                 if(minDistance > nextDistance)
                 {
@@ -90,7 +91,7 @@ public class Player : MonoBehaviour
                 }
             }
 
-            closestSwitch.GetComponent<Switch>().Use();
+            closestSwitch.Use();
         }
     }
 

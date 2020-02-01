@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
 
     private new Rigidbody2D rigidbody;
 
+    private List<GameObject> switchesInRange;
+
     #region MonoBehaviourMethods
 
     void Awake()
@@ -72,7 +74,24 @@ public class Player : MonoBehaviour
 
     private void InteractPerformed(InputAction.CallbackContext ctx)
     {
+        if(interactEnabled)
+        {
+            var closestSwitch = switchesInRange[0];
+            var minDistance = Vector3.Distance(transform.position, switchesInRange[0].transform.position);
+            
+            for(int i = 1; i < switchesInRange.Count; i++)
+            {
+                var nextDistance = Vector3.Distance(transform.position, switchesInRange[i].transform.position);
 
+                if(minDistance > nextDistance)
+                {
+                    minDistance = nextDistance;
+                    closestSwitch = switchesInRange[i];
+                }
+            }
+
+            closestSwitch.GetComponent<ISwitch>().Use();
+        }
     }
 
     private void JumpPerformed(InputAction.CallbackContext ctx)

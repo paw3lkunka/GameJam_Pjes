@@ -121,21 +121,25 @@ public class Player : MonoBehaviour
         if(!moveUpEnabled && simpleMove.y > 0)
         {
             simpleMove.y = 0;
+            simpleMove.x /= 0.7f;
         }
 
         if(!moveDownEnabled && simpleMove.y < 0)
         {
             simpleMove.y = 0;
+            simpleMove.x /= 0.7f;
         }
 
         if(!moveLeftEnabled && simpleMove.x < 0)
         {
             simpleMove.x = 0;
+            simpleMove.y /= 0.7f;
         }
 
         if(!moveRightEnabled && simpleMove.x > 0)
         {
             simpleMove.x = 0;
+            simpleMove.y /= 0.7f;
         }
     }
     

@@ -6,8 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public string mainMenuSceneName;
+    public string levelSelectSceneName;
     [SerializeField]
-    public List<string> sceneNames;
+    public List<string> levelScenesNames;
     
 
     public static GameManager Instance { get; private set; }
@@ -25,6 +26,8 @@ public class GameManager : MonoBehaviour
     private GameObject guiInstance;
 
     private int actualSceneIndex;
+
+    public int LevelsCompleted { get; private set; }
 
     #region MonoBehaviour
     private void Awake()
@@ -45,12 +48,16 @@ public class GameManager : MonoBehaviour
     {
         loadingScreenInstance = Instantiate(loadingScreenPrefab, Vector3.zero, Quaternion.identity);
         eventSystemInstance = Instantiate(eventSystem);
+
         DontDestroyOnLoad(loadingScreenInstance);
         DontDestroyOnLoad(eventSystemInstance);
-        actualSceneIndex = -1;
+        
         guiInstance = Instantiate(guiPrefab);
         DontDestroyOnLoad(guiInstance);
         guiInstance.SetActive(false);
+
+        actualSceneIndex = -1;
+        LevelsCompleted = 0;
     }
 
     private void Update()
@@ -63,14 +70,18 @@ public class GameManager : MonoBehaviour
     #region SceneManagement
     public void NextLevel()
     {
-        actualSceneIndex += 1;
-        if(actualSceneIndex < sceneNames.Count)
+        if(actualSceneIndex < LevelsCompleted)
         {
-            guiInstance.SetActive(false);
-            loadingScreenInstance.GetComponent<LoadingScreen>().Show( SceneManager.LoadSceneAsync(sceneNames[actualSceneIndex]) );
-            guiInstance.SetActive(true);
+            LevelsCompleted++;
+            Debug.Log("Level Completed");
         }
-        else if(actualSceneIndex == sceneNames.Count)
+
+        actualSceneIndex += 1;
+        if(actualSceneIndex < levelScenesNames.Count)
+        {
+            LoadLevel(actualSceneIndex);
+        }
+        else if(actualSceneIndex == levelScenesNames.Count)
         {
             FlushUselessShit();
             loadingScreenInstance.GetComponent<LoadingScreen>().Show(SceneManager.LoadSceneAsync(mainMenuSceneName));
@@ -84,9 +95,23 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void LevelSelector()
+    {
+        SceneManager.LoadScene(levelSelectSceneName);
+    }
+
+    public void LoadLevel(int index)
+    {
+        if(index < levelScenesNames.Count)
+        {
+            loadingScreenInstance.GetComponent<LoadingScreen>().Show(SceneManager.LoadSceneAsync(levelScenesNames[index]));
+            guiInstance.SetActive(true);
+        }
+    }
+
     public void ReloadLevel()
     {
-        SceneManager.LoadSceneAsync(sceneNames[actualSceneIndex]);
+        SceneManager.LoadSceneAsync(levelScenesNames[actualSceneIndex]);
     }
 
     public void ExitGame()
@@ -101,5 +126,4 @@ public class GameManager : MonoBehaviour
         Destroy(guiInstance);
     }
     #endregion
-
 }

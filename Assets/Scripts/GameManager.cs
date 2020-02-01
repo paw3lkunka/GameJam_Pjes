@@ -70,14 +70,14 @@ public class GameManager : MonoBehaviour
     #region SceneManagement
     public void NextLevel()
     {
-        if(actualSceneIndex < LevelsCompleted)
+        actualSceneIndex += 1;
+        
+        if ( actualSceneIndex > LevelsCompleted)
         {
             LevelsCompleted++;
-            Debug.Log("Level Completed");
+            Debug.Log( "Next Level: " + actualSceneIndex.ToString());
         }
-
-        actualSceneIndex += 1;
-        if(actualSceneIndex < levelScenesNames.Count)
+        if (actualSceneIndex < levelScenesNames.Count)
         {
             LoadLevel(actualSceneIndex);
         }
@@ -104,6 +104,8 @@ public class GameManager : MonoBehaviour
     {
         if(index < levelScenesNames.Count)
         {
+            actualSceneIndex = index;
+            Debug.Log("Load scene: " + index.ToString());
             loadingScreenInstance.GetComponent<LoadingScreen>().Show(SceneManager.LoadSceneAsync(levelScenesNames[index]));
             guiInstance.SetActive(true);
         }

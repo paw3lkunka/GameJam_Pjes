@@ -674,6 +674,80 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1578510088}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1774314615 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6950033768163742855, guid: b1c216a5ffea1094fa87116057c074fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 2616432312381052876}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1774314616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774314615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc5bf741632f5f54b9fa3deb93197729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TurnOn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 251053100}
+        m_MethodName: set_Gravity
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1774314617}
+        m_MethodName: set_flipX
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  TurnOff:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 251053100}
+        m_MethodName: set_Gravity
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1774314617}
+        m_MethodName: set_flipX
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!212 &1774314617 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2440610742093252761, guid: b1c216a5ffea1094fa87116057c074fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 2616432312381052876}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1815115151 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8841238339136561081, guid: 1bd6fc8ac28ed734ca6e84d568b901c5,
@@ -816,6 +890,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2440610742093252761, guid: b1c216a5ffea1094fa87116057c074fe,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4803099134548202113, guid: b1c216a5ffea1094fa87116057c074fe,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6950033768163742855, guid: b1c216a5ffea1094fa87116057c074fe,
         type: 3}

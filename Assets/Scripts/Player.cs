@@ -51,12 +51,20 @@ public class Player : MonoBehaviour
         currJumpLimit = jumpLimit;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (simpleMove.sqrMagnitude > 0)
         {
-            var nextPos = transform.position + new Vector3(simpleMove.x, simpleMove.y) * speed * Time.deltaTime;
-            transform.position = nextPos;
+            if(LevelManager.instance.Gravity)
+            {
+                var rbVel = rigidbody.velocity;
+                rbVel.x = simpleMove.x * speed;
+                rigidbody.velocity = rbVel;
+            }
+            else
+            {
+                rigidbody.velocity = simpleMove * speed;
+            }
         }
     }
 

@@ -16,7 +16,7 @@ public class LevelManager : MonoBehaviour
             gravity = value;
             if (gravity)
             {
-                Physics2D.gravity = Vector2.down;
+                Physics2D.gravity = Vector2.down*9.81f;
             }
             else
             {

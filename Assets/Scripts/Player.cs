@@ -8,14 +8,23 @@ public class Player : MonoBehaviour
     public float speed = 2.0f;
     public float jumpForce = 1.0f;
 
-    public bool interactEnabled = true;
+    [SerializeField] private bool interactEnabled = true;
+    public bool InteractEnabled { get => interactEnabled; set => interactEnabled = value; }
 
-    public bool jumpEnabled = false;
+    [SerializeField] private bool jumpEnabled = false;
+    public bool JumpEnabled { get => jumpEnabled; set => jumpEnabled = value; }
 
-    public bool moveUpEnabled = false;
-    public bool moveDownEnabled = false;
-    public bool moveRightEnabled = false;
-    public bool moveLeftEnabled = false;
+    [SerializeField] private bool moveUpEnabled = false;
+    public bool MoveUpEnabled { get => moveUpEnabled; set => moveUpEnabled = value; }
+
+    [SerializeField] private bool moveDownEnabled = false;
+    public bool MoveDownEnabled { get => moveDownEnabled; set => moveDownEnabled = value; }
+
+    [SerializeField] private bool moveRightEnabled = false;
+    public bool MoveRightEnabled { get => moveRightEnabled; set => moveRightEnabled = value; }
+
+    [SerializeField] private bool moveLeftEnabled = false;
+    public bool MoveLeftEnabled { get => moveLeftEnabled; set => moveLeftEnabled = value; }
 
     //[HideInInspector]
     public List<Switch> switchesInRange;

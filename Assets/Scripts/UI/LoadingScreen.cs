@@ -14,7 +14,7 @@ public class LoadingScreen : MonoBehaviour
     /// <summary>
     /// Flag to tell whether a scene is being loaded or not
     /// </summary>
-    private bool isLoading;
+    public bool isLoading { get; private set; }
     /// <summary>
     /// Elapsed time since the new scene started loading
     /// </summary>

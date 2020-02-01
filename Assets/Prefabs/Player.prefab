@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4754159894034509551}
   - component: {fileID: 4463487776192380657}
   - component: {fileID: 5732464268191293545}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,11 +145,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2.5
   jumpForce: 500
+  jumpLimit: 2
   interactEnabled: 1
   jumpEnabled: 1
   moveUpEnabled: 1
   moveDownEnabled: 0
   moveRightEnabled: 1
   moveLeftEnabled: 1
+  playerLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
   switchesInRange: []
-  jumpLimit: 2

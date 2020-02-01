@@ -39,8 +39,6 @@ public class LevelManager : MonoBehaviour
         Gravity = Physics2D.gravity != Vector2.zero;
     }
 
-
-    public Collider2D finish;
     public List<Rigidbody2D> phisicalObjects;
 
     [SerializeField,ReadOnly]

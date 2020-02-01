@@ -24,7 +24,6 @@ public class Player : MonoBehaviour
     private Vector2 simpleMove;
 
     private new Rigidbody2D rigidbody;
-
     #region MonoBehaviourMethods
 
     void Awake()

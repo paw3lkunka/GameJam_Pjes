@@ -33,12 +33,14 @@ public class Player : MonoBehaviour
     private Vector2 simpleMove;
 
     private new Rigidbody2D rigidbody;
+    private BoxCollider2D boxCollider2d;
     
     #region MonoBehaviour
 
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        boxCollider2d = GetComponent<BoxCollider2D>();
     }
 
     void Update()
@@ -48,6 +50,8 @@ public class Player : MonoBehaviour
             var nextPos = transform.position + new Vector3(simpleMove.x, simpleMove.y) * speed * Time.deltaTime;
             transform.position = nextPos;
         }
+
+        IsGrounded();
     }
 
     void OnEnable()     // Required for NewInput system.
@@ -148,5 +152,12 @@ public class Player : MonoBehaviour
         simpleMove = new Vector2();
     }
     #endregion
+
+    private bool IsGrounded()
+    {
+        var raycastHit2d = Physics2D.BoxCast(boxCollider2d.bounds.center, boxCollider2d.bounds.size, 0.0f, Vector2.down * 0.1f);
+        Debug.Log(raycastHit2d.collider);
+        return false;
+    }
 
 }

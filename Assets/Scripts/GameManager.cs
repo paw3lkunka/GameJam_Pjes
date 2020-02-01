@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
 
     private int actualSceneIndex;
 
+    public int LevelsCompleted { get; private set; }
+
     #region MonoBehaviour
     private void Awake()
     {
@@ -46,12 +48,16 @@ public class GameManager : MonoBehaviour
     {
         loadingScreenInstance = Instantiate(loadingScreenPrefab, Vector3.zero, Quaternion.identity);
         eventSystemInstance = Instantiate(eventSystem);
+
         DontDestroyOnLoad(loadingScreenInstance);
         DontDestroyOnLoad(eventSystemInstance);
-        actualSceneIndex = -1;
+        
         guiInstance = Instantiate(guiPrefab);
         DontDestroyOnLoad(guiInstance);
         guiInstance.SetActive(false);
+
+        actualSceneIndex = -1;
+        LevelsCompleted = 0;
     }
 
     private void Update()
@@ -64,11 +70,16 @@ public class GameManager : MonoBehaviour
     #region SceneManagement
     public void NextLevel()
     {
+        if(actualSceneIndex < LevelsCompleted)
+        {
+            LevelsCompleted++;
+            Debug.Log("Level Completed");
+        }
+
         actualSceneIndex += 1;
         if(actualSceneIndex < levelScenesNames.Count)
         {
-            loadingScreenInstance.GetComponent<LoadingScreen>().Show( SceneManager.LoadSceneAsync(levelScenesNames[actualSceneIndex]) );
-            guiInstance.SetActive(true);
+            LoadLevel(actualSceneIndex);
         }
         else if(actualSceneIndex == levelScenesNames.Count)
         {
@@ -93,8 +104,8 @@ public class GameManager : MonoBehaviour
     {
         if(index < levelScenesNames.Count)
         {
-            actualSceneIndex = index - 1;
-            NextLevel();
+            loadingScreenInstance.GetComponent<LoadingScreen>().Show(SceneManager.LoadSceneAsync(levelScenesNames[index]));
+            guiInstance.SetActive(true);
         }
     }
 

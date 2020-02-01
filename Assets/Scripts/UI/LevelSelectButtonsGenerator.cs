@@ -26,6 +26,10 @@ public class LevelSelectButtonsGenerator : MonoBehaviour
             buttonInstances[i].transform.localPosition = pos;
             buttonInstances[i].GetComponent<LevelSelectButton>().SceneIndex = i;
             buttonInstances[i].GetComponent<LevelSelectButton>().UpdateButton();
+            if(i > GameManager.Instance.LevelsCompleted)
+            {
+                buttonInstances[i].GetComponent<Button>().interactable = false;
+            }
         }
     }
 }

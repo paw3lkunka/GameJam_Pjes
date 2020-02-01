@@ -32,6 +32,10 @@ public class Player : MonoBehaviour
     private NewInput input;
     private Vector2 simpleMove;
 
+    [SerializeField]
+    private int jumpLimit;
+    private int currJumpLimit;
+
     private new Rigidbody2D rigidbody;
     private BoxCollider2D boxCollider2d;
     
@@ -41,6 +45,7 @@ public class Player : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody2D>();
         boxCollider2d = GetComponent<BoxCollider2D>();
+        currJumpLimit = jumpLimit;
     }
 
     void Update()
@@ -112,9 +117,10 @@ public class Player : MonoBehaviour
 
     private void JumpPerformed(InputAction.CallbackContext ctx)
     {
-        if(jumpEnabled)
+        if(jumpEnabled && currJumpLimit > 0)
         {
             rigidbody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            currJumpLimit--;
         }
     }
 

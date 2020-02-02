@@ -2679,33 +2679,33 @@ PrefabInstance:
     - target: {fileID: 8694532971363261078, guid: b415be34c06b50e43b09cd39b5ab90b5,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 112
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8694532971363261078, guid: b415be34c06b50e43b09cd39b5ab90b5,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8694532971363261078, guid: b415be34c06b50e43b09cd39b5ab90b5,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 21
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8694532971363261078, guid: b415be34c06b50e43b09cd39b5ab90b5,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8694532971363261078, guid: b415be34c06b50e43b09cd39b5ab90b5,
         type: 3}
       propertyPath: m_textInfo.pageCount
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8694532971363261078, guid: b415be34c06b50e43b09cd39b5ab90b5,
         type: 3}
       propertyPath: m_text
       value: '"Yo dwag, I heard you like switches. So I put switches into switches,
-        and now them can switch, when you switch."'
+        and now they can switch, when you switch."'
       objectReference: {fileID: 0}
     - target: {fileID: 8694532971363261078, guid: b415be34c06b50e43b09cd39b5ab90b5,
         type: 3}

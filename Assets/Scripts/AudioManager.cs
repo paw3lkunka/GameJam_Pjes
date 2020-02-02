@@ -31,6 +31,7 @@ public class AudioManager : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
         audioSource.loop = true;
+        audioSource.volume = 0.5f;
         PlayNewMusic();
     }
 

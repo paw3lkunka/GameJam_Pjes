@@ -21,8 +21,8 @@ public class Door : MonoBehaviour
         neutralPosR = right.transform.position;
         if(initialOpened)
         {
-            left.transform.Translate( -0.5f, 0, 0);
-            right.transform.Translate( 0.5f, 0, 0);
+            left.transform.Translate( -0.75f, 0, 0);
+            right.transform.Translate( 0.75f, 0, 0);
             Opened = true;
         }
     }
@@ -47,7 +47,7 @@ public class Door : MonoBehaviour
     {
         GameObject wing = left ? this.left : this.right;
         Vector2 currVelocity = new Vector2();
-        Vector2 offsett = (left ? new Vector2(-.5f, 0) : new Vector2(.5f, 0));
+        Vector2 offsett = (left ? new Vector2(-.75f, 0) : new Vector2(.75f, 0));
         Vector2 target = (left ? neutralPosL : neutralPosR) + (open ? offsett : Vector2.zero);
         while (Vector2.Distance(wing.transform.position, target) > 0.001f)
         {

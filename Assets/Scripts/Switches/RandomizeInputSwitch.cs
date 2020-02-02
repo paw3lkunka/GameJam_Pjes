@@ -52,6 +52,7 @@ public class RandomizeInputSwitch : Switch
         {
             usedIndexes[i] = true;
         }
+        Randomize();
     }
 
 

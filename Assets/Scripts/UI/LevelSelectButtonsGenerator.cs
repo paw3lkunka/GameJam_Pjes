@@ -14,6 +14,7 @@ public class LevelSelectButtonsGenerator : MonoBehaviour
     {
         levelCount = GameManager.Instance.levelScenesNames.Count;
         buttonInstances = new GameObject[levelCount];
+        transform.GetChild(0).GetComponent<Button>().onClick.AddListener(GameManager.Instance.MainMenu);
         Generate();
     }
 

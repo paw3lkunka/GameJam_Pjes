@@ -13,5 +13,6 @@ public class SwitchEditor : Editor
             (target as Switch).Use();
         }
         base.OnInspectorGUI();
+        EditorUtility.SetDirty(target);
     }
 }

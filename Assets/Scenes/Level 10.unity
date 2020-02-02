@@ -1515,7 +1515,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.28, y: 1.28}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1584,8 +1584,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -865121274807969520, guid: c7f46efb2fc81b94eb0c1d7130928eb6,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: d538a3def9b5ce44791bc480afc596d8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1639,7 +1638,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.28, y: 1.28}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2407,6 +2406,16 @@ PrefabInstance:
         type: 3}
       propertyPath: TurnOn.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
       value: set_JumpEnabled
+      objectReference: {fileID: 0}
+    - target: {fileID: 3795396463282963200, guid: d018cf0dc0f47f2419bb7b0d0e378320,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3795396463282963200, guid: d018cf0dc0f47f2419bb7b0d0e378320,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.04039561
       objectReference: {fileID: 0}
     - target: {fileID: 5423532374089317634, guid: d018cf0dc0f47f2419bb7b0d0e378320,
         type: 3}

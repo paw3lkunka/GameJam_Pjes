@@ -31,6 +31,7 @@ public class AudioManager : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
         audioSource.loop = true;
+        audioSource.volume = 0.5f;
         PlayNewMusic();
     }
 
@@ -51,7 +52,7 @@ public class AudioManager : MonoBehaviour
         if (congratulationClips.Count != 0)
         {
             var clipToPlay = congratulationClips[Random.Range(0, congratulationClips.Count - 1)];
-            audioSource.PlayOneShot(clipToPlay);
+            audioSource.PlayOneShot(clipToPlay, 1.0f);
         }
     }
 
@@ -60,7 +61,7 @@ public class AudioManager : MonoBehaviour
         if (restartClips.Count != 0)
         {
             var clipToPlay = restartClips[Random.Range(0, restartClips.Count - 1)];
-            audioSource.PlayOneShot(clipToPlay);
+            audioSource.PlayOneShot(clipToPlay, 1.0f);
         }
     }
 }

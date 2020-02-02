@@ -15,10 +15,6 @@ public class LevelComplete : MonoBehaviour
     /// Flag to tell whether a scene is being loaded or not
     /// </summary>
     public bool isLoading { get; private set; }
-    /// <summary>
-    /// Elapsed time since the new scene started loading
-    /// </summary>
-    private float timeElapsed;
 
     private void Start()
     {

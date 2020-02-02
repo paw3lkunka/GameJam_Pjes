@@ -3188,6 +3188,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Laser
       objectReference: {fileID: 0}
+    - target: {fileID: 8694532969455754773, guid: b55fb438326139347819966302b07185,
+        type: 3}
+      propertyPath: m_text
+      value: It looks like a danger.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8694532969455754773, guid: b55fb438326139347819966302b07185,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 23
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b55fb438326139347819966302b07185, type: 3}
 --- !u!1001 &1651665933

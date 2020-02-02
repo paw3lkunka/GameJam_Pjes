@@ -4,51 +4,46 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
+    public GameObject left; // up if vertical
+    public GameObject right;
     [SerializeField]
     private float doorOpeningTime = 1;
 
-    private bool isMoving = false;
-    private Vector2 targetPosition;
-    private Vector2 originalPosition;
-    private Vector2 currVelocity = new Vector2(); // Needed for Vector2.SmoothDamp().
+    private Vector2 neutralPosL;
+    private Vector2 neutralPosR;
 
+    private void Awake()
+    {
+        neutralPosL = left.transform.position;
+        neutralPosR = right.transform.position;
+    }
 
-    void Awake()
-    {
-        originalPosition = transform.position;
-    }
-    void Update()
-    {
-        if(isMoving == true)
-        {
-            Move();
-        }
-    }
 
     public void Open()
     {
-        BeginMoving(-1);
+        StopAllCoroutines();
+        gameObject.SetActive(true);
+        StartCoroutine(Move(true, true));
+        StartCoroutine(Move(false, true));
     }
 
     public void Close()
     {
-        BeginMoving(1);
+        StopAllCoroutines();
+        StartCoroutine(Move(true, false));
+        StartCoroutine(Move(false, false));
     }
 
-
-    private void BeginMoving(int distance)
+    private IEnumerator Move(bool left, bool open)
     {
-        isMoving = true;
-        targetPosition = originalPosition;
-        targetPosition.x += distance;
-        originalPosition = targetPosition;
-    }
-    private void Move()
-    {
-        transform.position = Vector2.SmoothDamp(transform.position, targetPosition, ref currVelocity, doorOpeningTime);
-        if(currVelocity == new Vector2()) // If (speed is 0).
+        GameObject wing = left ? this.left : this.right;
+        Vector2 currVelocity = new Vector2();
+        Vector2 offsett = (left ? new Vector2(-.5f, 0) : new Vector2(.5f, 0));
+        Vector2 target = (left ? neutralPosL : neutralPosR) + (open ? offsett : Vector2.zero);
+        while (Vector2.Distance(wing.transform.position, target) > 0.001f)
         {
-            isMoving = false;
+            wing.transform.position = Vector2.SmoothDamp(wing.transform.position, target, ref currVelocity, doorOpeningTime);
+            yield return new WaitForEndOfFrame();
         }
     }
 }

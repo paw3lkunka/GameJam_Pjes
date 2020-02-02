@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(LevelCompleteInstance);
         
         GuiInstance = Instantiate(guiPrefab);
-        GuiInstance.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(ReloadLevel);
+        GuiInstance.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(LevelSelector);
         DontDestroyOnLoad(GuiInstance);
         GuiInstance.SetActive(false);
 

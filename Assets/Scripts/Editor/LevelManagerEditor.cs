@@ -20,6 +20,6 @@ public class LevelManagerEditor : Editor
         {
             LevelManager.Instance.Stop();
         }
-
+        EditorUtility.SetDirty(target);
     }
 }

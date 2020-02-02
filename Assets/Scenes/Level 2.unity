@@ -1711,7 +1711,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 0.13999999, y: 0.13999999, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -1742,8 +1742,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: d88a369e0c2781d419ce54a655506f16, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 1
-    m_Data: {fileID: -865121274807969520, guid: c7f46efb2fc81b94eb0c1d7130928eb6,
-      type: 3}
+    m_Data: {fileID: 21300000, guid: d538a3def9b5ce44791bc480afc596d8, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 1
     m_Data:
@@ -2482,6 +2481,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6074029476107352134, guid: 3364c9a50b39546478e878fea1fab76a,
         type: 3}
+      propertyPath: TurnOff.m_PersistentCalls.m_Calls.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6074029476107352134, guid: 3364c9a50b39546478e878fea1fab76a,
+        type: 3}
       propertyPath: TurnOn.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1568274706}
@@ -2499,6 +2503,36 @@ PrefabInstance:
         type: 3}
       propertyPath: TurnOff.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6074029476107352134, guid: 3364c9a50b39546478e878fea1fab76a,
+        type: 3}
+      propertyPath: TurnOff.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6074029476107352134, guid: 3364c9a50b39546478e878fea1fab76a,
+        type: 3}
+      propertyPath: TurnOff.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6074029476107352134, guid: 3364c9a50b39546478e878fea1fab76a,
+        type: 3}
+      propertyPath: TurnOff.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6074029476107352134, guid: 3364c9a50b39546478e878fea1fab76a,
+        type: 3}
+      propertyPath: TurnOff.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 1568274706}
+    - target: {fileID: 6074029476107352134, guid: 3364c9a50b39546478e878fea1fab76a,
+        type: 3}
+      propertyPath: TurnOff.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: set_MoveLeftEnabled
+      objectReference: {fileID: 0}
+    - target: {fileID: 6074029476107352134, guid: 3364c9a50b39546478e878fea1fab76a,
+        type: 3}
+      propertyPath: TurnOff.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6482603413993280175, guid: 3364c9a50b39546478e878fea1fab76a,
         type: 3}

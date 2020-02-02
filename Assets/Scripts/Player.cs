@@ -5,6 +5,9 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    public float withinGravityDrag;
+    public float withoutGravityDrag;
+
     [SerializeField] private float speed = 2.0f;
     
     [SerializeField] private float jumpForce = 1.0f;

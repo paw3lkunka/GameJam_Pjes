@@ -8,6 +8,9 @@ public class Door : MonoBehaviour
     public GameObject right;
     [SerializeField]
     private float doorOpeningTime = 1;
+    public bool initialOpened = false;
+    [field: SerializeField, ReadOnly]
+    public bool Opened { get; private set; }
 
     private Vector2 neutralPosL;
     private Vector2 neutralPosR;
@@ -16,6 +19,12 @@ public class Door : MonoBehaviour
     {
         neutralPosL = left.transform.position;
         neutralPosR = right.transform.position;
+        if(initialOpened)
+        {
+            left.transform.Translate( -0.5f, 0, 0);
+            right.transform.Translate( 0.5f, 0, 0);
+            Opened = true;
+        }
     }
 
 
@@ -45,5 +54,6 @@ public class Door : MonoBehaviour
             wing.transform.position = Vector2.SmoothDamp(wing.transform.position, target, ref currVelocity, doorOpeningTime);
             yield return new WaitForEndOfFrame();
         }
+        Opened = open;
     }
 }

@@ -8,6 +8,19 @@ public class LevelManager : MonoBehaviour
     public bool initialGravity;
     public static LevelManager Instance { get; private set; }
     public List<Rigidbody2D> phisicalObjects;
+    private Player player;
+    public Player Player
+    {
+        get
+        {
+            if(player==null)
+            {
+                player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+            }
+
+            return player;
+        }
+    }
 
     public bool Gravity
     {
@@ -18,10 +31,12 @@ public class LevelManager : MonoBehaviour
             if (gravity)
             {
                 Physics2D.gravity = Vector2.down * 9.81f;
+                Player.GetComponent<Rigidbody2D>().drag = Player.withinGravityDrag;
             }
             else
             {
                 Physics2D.gravity = Vector2.zero;
+                Player.GetComponent<Rigidbody2D>().drag = Player.withoutGravityDrag;
             }
         }
     }

@@ -15,6 +15,7 @@ public class MainMenu : MonoBehaviour
     {
         startButton.onClick.AddListener(GameManager.Instance.LevelSelector);
         exitButton.onClick.AddListener(GameManager.Instance.ExitGame);
+        creditsButton.onClick.AddListener(GameManager.Instance.TheEnd);
 
     }
 

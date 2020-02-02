@@ -116,6 +116,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(mainMenuSceneName);
     }
 
+    public void TheEnd()
+    {
+        SceneManager.LoadScene(theEndSceneName);
+    }
+
     public void LoadLevel(int index)
     {
         if(index < levelScenesNames.Count)

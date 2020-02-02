@@ -45,6 +45,9 @@ public class Player : MonoBehaviour
     private new Rigidbody2D rigidbody;
     private Collider2D collider2d;
 
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
+
     [Header("Sounds")]
 
     private AudioSource audioSource;
@@ -62,13 +65,18 @@ public class Player : MonoBehaviour
         collider2d = GetComponent<Collider2D>();
         currJumpLimit = jumpLimit;
         audioSource = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void FixedUpdate()
     {
         if (simpleMove.sqrMagnitude > 0)
         {
-            if(LevelManager.Instance.Gravity)
+            animator.SetBool("isRunning", true);
+            spriteRenderer.flipX = simpleMove.x < 0;
+
+            if (LevelManager.Instance.Gravity)
             {
                 var rbVel = rigidbody.velocity;
                 rbVel.x = simpleMove.x * speed;
@@ -78,6 +86,10 @@ public class Player : MonoBehaviour
             {
                 rigidbody.velocity = simpleMove * speed;
             }
+        }
+        else
+        {
+            animator.SetBool("isRunning", false);
         }
     }
 
@@ -194,6 +206,8 @@ public class Player : MonoBehaviour
         return raycastHit2d.collider != null;
     }
 
+    #region SoundsMethods
+
     private void PlayInteractionSound()
     {
         if(interactionClips.Count != 0)
@@ -211,4 +225,6 @@ public class Player : MonoBehaviour
             audioSource.PlayOneShot(clipToPlay);
         }
     }
+
+    #endregion
 }

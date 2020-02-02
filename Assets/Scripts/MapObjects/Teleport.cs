@@ -22,7 +22,7 @@ public class Teleport : MonoBehaviour
         audioSource.clip = buzzClip;
         audioSource.loop = true;
         audioSource.playOnAwake = true;
-        audioSource.volume = 0.6f;
+        audioSource.volume = 0.3f;
         audioSource.Play();
     }
 
@@ -51,6 +51,6 @@ public class Teleport : MonoBehaviour
 
     private void PlayTransitionSound()
     {
-        audioSource.PlayOneShot(transitionClip);
+        audioSource.PlayOneShot(transitionClip, 1);
     }
 }

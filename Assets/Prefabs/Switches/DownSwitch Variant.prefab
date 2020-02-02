@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5560626, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 127166683, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -115,6 +119,10 @@ PrefabInstance:
       propertyPath: TurnOff.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1257090481, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
+      propertyPath: <State>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1527628892, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -174,15 +182,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2277924138405554821, guid: b1c216a5ffea1094fa87116057c074fe,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9e7a0b9419707fe4db14cbdbfa3961c7,
+        type: 3}
+    - target: {fileID: 2277924138405554821, guid: b1c216a5ffea1094fa87116057c074fe,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2277924138405554821, guid: b1c216a5ffea1094fa87116057c074fe,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2333732208711431708, guid: b1c216a5ffea1094fa87116057c074fe,
         type: 3}
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2333732208711431708, guid: b1c216a5ffea1094fa87116057c074fe,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6950033768163742855, guid: b1c216a5ffea1094fa87116057c074fe,
         type: 3}
       propertyPath: m_Name
-      value: DownSwitch
+      value: DownSwitch Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}

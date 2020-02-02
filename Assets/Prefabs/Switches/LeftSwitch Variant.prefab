@@ -188,6 +188,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: c40ef24e6ec09384eae53cec51e2efae,
         type: 3}
+    - target: {fileID: 2277924138405554821, guid: b1c216a5ffea1094fa87116057c074fe,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2277924138405554821, guid: b1c216a5ffea1094fa87116057c074fe,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2277924138405554821, guid: b1c216a5ffea1094fa87116057c074fe,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2333732208711431708, guid: b1c216a5ffea1094fa87116057c074fe,
         type: 3}
       propertyPath: m_FlipX
@@ -201,7 +216,22 @@ PrefabInstance:
     - target: {fileID: 6950033768163742855, guid: b1c216a5ffea1094fa87116057c074fe,
         type: 3}
       propertyPath: m_Name
-      value: LeftSwitch
+      value: LeftSwitch Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7343508679175998097, guid: b1c216a5ffea1094fa87116057c074fe,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.8962264
+      objectReference: {fileID: 0}
+    - target: {fileID: 7343508679175998097, guid: b1c216a5ffea1094fa87116057c074fe,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.6199842
+      objectReference: {fileID: 0}
+    - target: {fileID: 7343508679175998097, guid: b1c216a5ffea1094fa87116057c074fe,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.1986917
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}

@@ -40,7 +40,7 @@ public class Door : MonoBehaviour
     {
         isMoving = true;
         targetPosition = originalPosition;
-        targetPosition.x += distance;
+        targetPosition.x += distance * transform.localScale.x;
         originalPosition = targetPosition;
     }
     private void Move()

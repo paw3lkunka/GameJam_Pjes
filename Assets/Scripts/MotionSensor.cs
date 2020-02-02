@@ -14,7 +14,7 @@ public class MotionSensor : Laser
 
     new protected void Update()
     {
-        RaycastHit2D hit = Physics2D.Raycast(head.transform.position, DirVector, float.PositiveInfinity);
+        RaycastHit2D hit = Physics2D.Raycast(head.transform.position, DirVector, float.PositiveInfinity, layerMask);
         SetLine(hit);
 
         RigidbodyType2D targetType;

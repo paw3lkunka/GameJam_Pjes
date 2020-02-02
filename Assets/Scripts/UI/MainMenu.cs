@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
     public Button startButton;
+    public Button creditsButton;
     public Button exitButton;
 
 
@@ -14,6 +15,7 @@ public class MainMenu : MonoBehaviour
     {
         startButton.onClick.AddListener(GameManager.Instance.LevelSelector);
         exitButton.onClick.AddListener(GameManager.Instance.ExitGame);
+
     }
 
 }

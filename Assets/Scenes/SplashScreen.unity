@@ -380,6 +380,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8585885334094559363, guid: 97b19a2bb50dc884d8a7de7868635605,
+        type: 3}
+      propertyPath: levelScenesNames.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8585885334094559363, guid: 97b19a2bb50dc884d8a7de7868635605,
+        type: 3}
+      propertyPath: levelScenesNames.Array.data[11]
+      value: Level 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8585885334094559363, guid: 97b19a2bb50dc884d8a7de7868635605,
+        type: 3}
+      propertyPath: levelScenesNames.Array.data[9]
+      value: Level 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8585885334094559363, guid: 97b19a2bb50dc884d8a7de7868635605,
+        type: 3}
+      propertyPath: levelScenesNames.Array.data[10]
+      value: Level 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97b19a2bb50dc884d8a7de7868635605, type: 3}
 --- !u!1001 &3280151265406575918

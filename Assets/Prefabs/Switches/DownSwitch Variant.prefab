@@ -182,7 +182,7 @@ PrefabInstance:
     - target: {fileID: 6950033768163742855, guid: b1c216a5ffea1094fa87116057c074fe,
         type: 3}
       propertyPath: m_Name
-      value: DownSwitch
+      value: DownSwitch Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}

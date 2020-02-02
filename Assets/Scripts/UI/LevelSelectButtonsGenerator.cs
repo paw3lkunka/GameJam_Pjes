@@ -22,7 +22,7 @@ public class LevelSelectButtonsGenerator : MonoBehaviour
     {
         for(int i = 0; i < levelCount; ++i)
         {
-            Vector3 pos = new Vector3(-600 + 300 * (i % 5), 200 - 300 * (i / 5), 0);
+            Vector3 pos = new Vector3(-400 + 300 * (i % 4), 200 - 300 * (i / 4), 0);
             buttonInstances[i] = Instantiate(buttonPrefab, Vector3.zero, Quaternion.identity, gameObject.transform);
             buttonInstances[i].transform.localPosition = pos;
             buttonInstances[i].GetComponent<LevelSelectButton>().SceneIndex = i;

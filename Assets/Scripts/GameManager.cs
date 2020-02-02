@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public string mainMenuSceneName;
     public string levelSelectSceneName;
+    public string theEndSceneName;
     [SerializeField]
     public List<string> levelScenesNames;
     
@@ -94,9 +95,9 @@ public class GameManager : MonoBehaviour
         else if(actualSceneIndex == levelScenesNames.Count)
         {
             FlushUselessShit();
-            loadingScreenInstance.GetComponent<LoadingScreen>().Show(SceneManager.LoadSceneAsync(mainMenuSceneName));
+            loadingScreenInstance.GetComponent<LoadingScreen>().Show(SceneManager.LoadSceneAsync(theEndSceneName));
             GuiInstance.SetActive(false);
-            actualSceneIndex = -1;
+            
         }
         else
         {
@@ -139,8 +140,12 @@ public class GameManager : MonoBehaviour
     private void FlushUselessShit()
     {
         Destroy(eventSystemInstance);
+        Destroy(loadingScreenInstance);
+        Destroy(LevelCompleteInstance);
+
         Destroy(gameObject);
         Destroy(GuiInstance);
+        actualSceneIndex = -1;
     }
     #endregion
 }

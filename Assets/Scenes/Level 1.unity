@@ -1310,6 +1310,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ed4a9ab19210ab4d95c8e025ca2efa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelCompletePrefab: {fileID: 2630936272980996873, guid: abb6bd5f60c11a54694a19dfdc9714fc,
+    type: 3}
 --- !u!1 &1159993430
 GameObject:
   m_ObjectHideFlags: 0

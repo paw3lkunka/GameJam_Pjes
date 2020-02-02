@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     public GameObject eventSystem;
     private GameObject eventSystemInstance;
 
+    
+
     [SerializeField]
     public GameObject guiPrefab;
     public GameObject GuiInstance { get; private set; }
@@ -74,9 +76,7 @@ public class GameManager : MonoBehaviour
     #region SceneManagement
     public void NextLevel()
     {
-        GuiInstance.transform.GetComponentsInChildren<TextMeshProUGUI>()[0].gameObject.SetActive(true);
         actualSceneIndex += 1;
-        GuiInstance.transform.GetComponentsInChildren<TextMeshProUGUI>()[0].gameObject.SetActive(false);
         if ( actualSceneIndex > LevelsCompleted)
         {
             LevelsCompleted++;

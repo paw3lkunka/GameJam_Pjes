@@ -94,10 +94,8 @@ public class GameManager : MonoBehaviour
         }
         else if(actualSceneIndex == levelScenesNames.Count)
         {
-            FlushUselessShit();
             loadingScreenInstance.GetComponent<LoadingScreen>().Show(SceneManager.LoadSceneAsync(theEndSceneName));
             GuiInstance.SetActive(false);
-            
         }
         else
         {

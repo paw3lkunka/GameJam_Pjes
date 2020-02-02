@@ -132,6 +132,10 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5560626, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 127166683, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -236,6 +240,10 @@ PrefabInstance:
       propertyPath: TurnOff.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1257090481, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
+      propertyPath: <State>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1527628892, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -304,6 +312,11 @@ PrefabInstance:
     - target: {fileID: 2333732208711431708, guid: b1c216a5ffea1094fa87116057c074fe,
         type: 3}
       propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2333732208711431708, guid: b1c216a5ffea1094fa87116057c074fe,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6707539148081435026, guid: b1c216a5ffea1094fa87116057c074fe,
@@ -1839,6 +1852,10 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5560626, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 127166683, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -2013,6 +2030,11 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2333732208711431708, guid: b1c216a5ffea1094fa87116057c074fe,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6707539148081435026, guid: b1c216a5ffea1094fa87116057c074fe,
         type: 3}
       propertyPath: m_BodyType
@@ -2133,7 +2155,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5560626, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 127166683, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
       propertyPath: m_Enabled
@@ -2239,6 +2261,10 @@ PrefabInstance:
       propertyPath: TurnOff.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1257090481, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
+      propertyPath: <State>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1527628892, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -2307,7 +2333,7 @@ PrefabInstance:
     - target: {fileID: 2333732208711431708, guid: b1c216a5ffea1094fa87116057c074fe,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2333732208711431708, guid: b1c216a5ffea1094fa87116057c074fe,
         type: 3}

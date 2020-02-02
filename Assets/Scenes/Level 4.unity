@@ -3271,17 +3271,27 @@ PrefabInstance:
     - target: {fileID: 5900435886233118267, guid: b55fb438326139347819966302b07185,
         type: 3}
       propertyPath: m_Positions.Array.data[1].x
-      value: 4.545793
+      value: 2.3053563
       objectReference: {fileID: 0}
     - target: {fileID: 5900435886233118267, guid: b55fb438326139347819966302b07185,
         type: 3}
       propertyPath: m_Positions.Array.data[1].y
-      value: 0.98574823
+      value: 4.203724
       objectReference: {fileID: 0}
     - target: {fileID: 5900435886233118269, guid: b55fb438326139347819966302b07185,
         type: 3}
       propertyPath: m_Name
       value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 8694532969455754773, guid: b55fb438326139347819966302b07185,
+        type: 3}
+      propertyPath: m_text
+      value: It looks like a danger.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8694532969455754773, guid: b55fb438326139347819966302b07185,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 8694532969455754779, guid: b55fb438326139347819966302b07185,
         type: 3}

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
     public GameObject guiPrefab;
     private GameObject guiInstance;
 
+    [SerializeField]
     private int actualSceneIndex;
 
     public int LevelsCompleted { get; private set; }
@@ -39,7 +41,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Destroy(this);
+            Destroy(gameObject);
             return;
         }
     }
@@ -53,6 +55,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(eventSystemInstance);
         
         guiInstance = Instantiate(guiPrefab);
+        guiInstance.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(ReloadLevel);
         DontDestroyOnLoad(guiInstance);
         guiInstance.SetActive(false);
 
@@ -71,7 +74,8 @@ public class GameManager : MonoBehaviour
     public void NextLevel()
     {
         actualSceneIndex += 1;
-        
+        Debug.Log(actualSceneIndex.ToString());
+
         if ( actualSceneIndex > LevelsCompleted)
         {
             LevelsCompleted++;
@@ -111,7 +115,8 @@ public class GameManager : MonoBehaviour
 
     public void ReloadLevel()
     {
-        SceneManager.LoadSceneAsync(levelScenesNames[actualSceneIndex]);
+        Debug.Log(actualSceneIndex.ToString());
+        SceneManager.LoadScene(levelScenesNames[actualSceneIndex]);   
     }
 
     public void ExitGame()

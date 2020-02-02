@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
         GuiInstance.SetActive(false);
 
         actualSceneIndex = -1;
-        LevelsCompleted = 15;
+        LevelsCompleted = 0;
     }
 
     private void Update()

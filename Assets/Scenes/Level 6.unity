@@ -376,7 +376,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 0.13999999, y: 0.13999999, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -407,8 +407,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: d88a369e0c2781d419ce54a655506f16, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 1
-    m_Data: {fileID: -865121274807969520, guid: c7f46efb2fc81b94eb0c1d7130928eb6,
-      type: 3}
+    m_Data: {fileID: 21300000, guid: d538a3def9b5ce44791bc480afc596d8, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 1
     m_Data:

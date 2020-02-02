@@ -23,8 +23,8 @@ public class Door : MonoBehaviour
         neutralPosR = right.transform.position;
         if(initialOpened)
         {
-            left.transform.Translate( -openDir);
-            right.transform.Translate(openDir);
+            left.transform.Translate( (Vector3)(-openDir));
+            right.transform.Translate((Vector3)openDir);
             Opened = true;
         }
     }

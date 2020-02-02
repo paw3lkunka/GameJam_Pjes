@@ -8,23 +8,27 @@ public class Laser : MonoBehaviour
     public float direction;
     public GameObject head;
 
+    protected int layerMask;
+
     private LineRenderer lineRenderer;
 
     protected void OnValidate()
     {
+        layerMask = LayerMask.NameToLayer("Turrets");
         lineRenderer = GetComponent<LineRenderer>();
-        RaycastHit2D hit = Physics2D.Raycast(head.transform.position, DirVector, 100);
+        RaycastHit2D hit = Physics2D.Raycast(head.transform.position, DirVector, 100f, layerMask);
         SetLine(hit);
     }
 
     protected void Start()
     {
+        layerMask = LayerMask.NameToLayer("Turrets");
         lineRenderer = GetComponent<LineRenderer>();
     }
 
     protected void Update()
     {
-        RaycastHit2D hit = Physics2D.Raycast(head.transform.position, DirVector, float.PositiveInfinity);
+        RaycastHit2D hit = Physics2D.Raycast(head.transform.position, DirVector, float.PositiveInfinity, layerMask);
         SetLine(hit);
         try
         {

@@ -14,7 +14,7 @@ public class Laser : MonoBehaviour
 
     protected void OnValidate()
     {
-        layerMask = LayerMask.NameToLayer("Turrets");
+        layerMask = ~(1 << LayerMask.NameToLayer("Turrets"));
         lineRenderer = GetComponent<LineRenderer>();
         RaycastHit2D hit = Physics2D.Raycast(head.transform.position, DirVector, 100f, layerMask);
         SetLine(hit);
@@ -22,7 +22,7 @@ public class Laser : MonoBehaviour
 
     protected void Start()
     {
-        layerMask = LayerMask.NameToLayer("Turrets");
+        layerMask = ~(1 << LayerMask.NameToLayer("Turrets"));
         lineRenderer = GetComponent<LineRenderer>();
     }
 

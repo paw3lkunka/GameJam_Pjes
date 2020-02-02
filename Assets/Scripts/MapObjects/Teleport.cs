@@ -8,9 +8,22 @@ public class Teleport : MonoBehaviour
     private bool detectingEnabled = true;
     private Vector2 pairedTeleportPosition;
 
+    private AudioSource audioSource;
+
+    [SerializeField]
+    private AudioClip buzzClip;
+    [SerializeField]
+    private AudioClip transitionClip;
+
     void Awake()
     {
         pairedTeleportPosition = pairedTeleport.transform.position;
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = buzzClip;
+        audioSource.loop = true;
+        audioSource.playOnAwake = true;
+        audioSource.volume = 0.04f;
+        audioSource.Play();
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -23,6 +36,7 @@ public class Teleport : MonoBehaviour
 
     private void TeleportObject(GameObject teleportedObject)
     {
+        PlayTransitionSound();
         StartCoroutine(PairedTeleportTimeout());
         teleportedObject.transform.position = pairedTeleportPosition;
     }
@@ -33,5 +47,10 @@ public class Teleport : MonoBehaviour
         yield return new WaitForFixedUpdate();
         yield return new WaitForFixedUpdate();
         pairedTeleport.detectingEnabled = true;
+    }
+
+    private void PlayTransitionSound()
+    {
+        audioSource.PlayOneShot(transitionClip, 1);
     }
 }

@@ -26,5 +26,6 @@ public class OnOffSwitchEditor : Editor
         GUILayout.EndHorizontal();
 
         base.OnInspectorGUI();
+        EditorUtility.SetDirty(target);
     }
 }

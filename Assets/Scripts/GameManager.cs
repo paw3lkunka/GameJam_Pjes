@@ -20,6 +20,10 @@ public class GameManager : MonoBehaviour
     private GameObject loadingScreenInstance;
 
     [SerializeField]
+    public GameObject levelCompletePrefab;
+    public GameObject LevelCompleteInstance { get; private set; }
+
+    [SerializeField]
     public GameObject eventSystem;
     private GameObject eventSystemInstance;
 
@@ -53,9 +57,11 @@ public class GameManager : MonoBehaviour
     {
         loadingScreenInstance = Instantiate(loadingScreenPrefab, Vector3.zero, Quaternion.identity);
         eventSystemInstance = Instantiate(eventSystem);
+        LevelCompleteInstance = Instantiate(levelCompletePrefab);
 
         DontDestroyOnLoad(loadingScreenInstance);
         DontDestroyOnLoad(eventSystemInstance);
+        DontDestroyOnLoad(LevelCompleteInstance);
         
         GuiInstance = Instantiate(guiPrefab);
         GuiInstance.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(ReloadLevel);

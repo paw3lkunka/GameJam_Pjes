@@ -38,6 +38,7 @@ public class LevelComplete : MonoBehaviour
     public void NextLevel()
     {
         GameManager.Instance.NextLevel();
+        Hide();
     }
 
 }

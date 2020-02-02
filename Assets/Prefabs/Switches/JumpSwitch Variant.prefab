@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &1205046668401379357
+--- !u!1001 &3114022633582242181
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -11,13 +11,9 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5560626, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 127166683, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1257090481, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
       propertyPath: TurnOn.m_PersistentCalls.m_Calls.Array.size
@@ -41,7 +37,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1257090481, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
       propertyPath: TurnOn.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: set_MoveRightEnabled
+      value: set_JumpEnabled
       objectReference: {fileID: 0}
     - target: {fileID: 1257090481, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
       propertyPath: TurnOn.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -69,15 +65,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1257090481, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
       propertyPath: TurnOff.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: set_MoveRightEnabled
+      value: set_JumpEnabled
       objectReference: {fileID: 0}
     - target: {fileID: 1257090481, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
       propertyPath: TurnOff.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1257090481, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
-      propertyPath: <State>k__BackingField
+      propertyPath: TurnOn.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1257090481, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
+      propertyPath: TurnOn.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1257090481, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
+      propertyPath: TurnOn.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1257090481, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
+      propertyPath: TurnOn.m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1257090481, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
+      propertyPath: TurnOn.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
+      value: Use
+      objectReference: {fileID: 0}
+    - target: {fileID: 1257090481, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
+      propertyPath: TurnOn.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1257090481, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
       propertyPath: TurnOn.m_PersistentCalls.m_Calls.Array.data[2].m_Target
@@ -85,7 +101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1257090481, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
       propertyPath: TurnOn.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: set_MoveRightEnabled
+      value: set_JumpEnabled
       objectReference: {fileID: 0}
     - target: {fileID: 1257090481, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
       propertyPath: TurnOn.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
@@ -109,7 +125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1257090481, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
       propertyPath: TurnOff.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: set_MoveRightEnabled
+      value: set_JumpEnabled
       objectReference: {fileID: 0}
     - target: {fileID: 1257090481, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
       propertyPath: TurnOff.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
@@ -125,17 +141,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1527628892, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 990119933251749720, guid: b1c216a5ffea1094fa87116057c074fe,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 990119933251749720, guid: b1c216a5ffea1094fa87116057c074fe,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.5
+      value: -3.5
       objectReference: {fileID: 0}
     - target: {fileID: 990119933251749720, guid: b1c216a5ffea1094fa87116057c074fe,
         type: 3}
@@ -186,32 +202,22 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d8dcb61c68074f94bac0cd2a9df325da,
+      objectReference: {fileID: 21300000, guid: cbb6ed69381dbdd499291ad2f2a311f4,
         type: 3}
-    - target: {fileID: 2277924138405554821, guid: b1c216a5ffea1094fa87116057c074fe,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2277924138405554821, guid: b1c216a5ffea1094fa87116057c074fe,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2333732208711431708, guid: b1c216a5ffea1094fa87116057c074fe,
         type: 3}
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2333732208711431708, guid: b1c216a5ffea1094fa87116057c074fe,
+    - target: {fileID: 6707539148081435026, guid: b1c216a5ffea1094fa87116057c074fe,
         type: 3}
-      propertyPath: m_Enabled
-      value: 0
+      propertyPath: m_BodyType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6950033768163742855, guid: b1c216a5ffea1094fa87116057c074fe,
         type: 3}
       propertyPath: m_Name
-      value: RightSwitch Variant
+      value: JumpSwitch Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}

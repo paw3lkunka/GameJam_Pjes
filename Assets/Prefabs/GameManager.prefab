@@ -63,6 +63,8 @@ MonoBehaviour:
   - Level 4
   loadingScreenPrefab: {fileID: 2630936272980996873, guid: fc6019c4cc0f97f43bdc075dbd0500bd,
     type: 3}
+  levelCompletePrefab: {fileID: 2630936272980996873, guid: abb6bd5f60c11a54694a19dfdc9714fc,
+    type: 3}
   eventSystem: {fileID: 6671530064670126115, guid: 89bc176eea94e894c94fcb9b968dd63d,
     type: 3}
   guiPrefab: {fileID: 5875683726190041767, guid: 2ce60cd30be577342bfb7feaed424ee0,

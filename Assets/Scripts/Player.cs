@@ -41,7 +41,16 @@ public class Player : MonoBehaviour
 
     private new Rigidbody2D rigidbody;
     private Collider2D collider2d;
-    
+
+    [Header("Sounds")]
+
+    private AudioSource audioSource;
+
+    [SerializeField]
+    private List<AudioClip> interactionClips;
+    [SerializeField]
+    private List<AudioClip> jumpClips;
+
     #region MonoBehaviour
 
     void Awake()
@@ -49,6 +58,7 @@ public class Player : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         collider2d = GetComponent<Collider2D>();
         currJumpLimit = jumpLimit;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -120,6 +130,7 @@ public class Player : MonoBehaviour
                 }
             }
 
+            PlayInteractionSound();
             closestSwitch.Use();
         }
     }
@@ -133,6 +144,7 @@ public class Player : MonoBehaviour
 
         if (jumpEnabled && currJumpLimit > 0)
         {
+            PlayJumpSound();
             rigidbody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
             currJumpLimit--;
         }
@@ -179,4 +191,21 @@ public class Player : MonoBehaviour
         return raycastHit2d.collider != null;
     }
 
+    private void PlayInteractionSound()
+    {
+        if(interactionClips.Count != 0)
+        {
+            var clipToPlay = interactionClips[Random.Range(0, interactionClips.Count - 1)];
+            audioSource.PlayOneShot(clipToPlay);
+        }
+    }
+
+    private void PlayJumpSound()
+    {
+        if(jumpClips.Count != 0)
+        {
+            var clipToPlay = jumpClips[Random.Range(0, jumpClips.Count - 1)];
+            audioSource.PlayOneShot(clipToPlay);
+        }
+    }
 }

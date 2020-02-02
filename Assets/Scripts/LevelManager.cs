@@ -74,6 +74,8 @@ public class LevelManager : MonoBehaviour
         input = new NewInput();
         Gravity = initialGravity;
         Physics2D.gravity = (Gravity ? 1f : 0f) * Vector2.down * 9.81f;
+
+        AudioManager.Instance.PlayNewMusic();
     }
 
     private void Start()
@@ -109,6 +111,7 @@ public class LevelManager : MonoBehaviour
     
     private void ReloadLevel(InputAction.CallbackContext ctx)
     {
+        AudioManager.Instance.PlayRestartSound();
         GameManager.Instance.ReloadLevel();
     }
 

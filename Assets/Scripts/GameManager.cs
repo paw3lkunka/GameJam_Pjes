@@ -121,7 +121,7 @@ public class GameManager : MonoBehaviour
 
     public void ReloadLevel()
     {
-        Debug.Log(actualSceneIndex.ToString());
+        //Debug.Log(actualSceneIndex.ToString());
         SceneManager.LoadScene(levelScenesNames[actualSceneIndex]);   
     }
 

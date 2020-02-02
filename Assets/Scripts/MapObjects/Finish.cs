@@ -10,7 +10,7 @@ public class Finish : MonoBehaviour
         if( collision.GetComponent<Player>() )
         {
             AudioManager.Instance.PlayCongratsSound();
-            GameManager.Instance.NextLevel();
+            GameManager.Instance.LevelCompleteInstance.GetComponent<LevelComplete>().Show();
         }
     }
 }

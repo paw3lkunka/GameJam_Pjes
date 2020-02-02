@@ -3676,6 +3676,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1648602350741446423, guid: 340ade4eb812f7f4d81c9480485e2c63,
+        type: 3}
+      propertyPath: m_text
+      value: It looks like a danger.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648602350741446423, guid: 340ade4eb812f7f4d81c9480485e2c63,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 23
+      objectReference: {fileID: 0}
     - target: {fileID: 3002809166623573644, guid: 340ade4eb812f7f4d81c9480485e2c63,
         type: 3}
       propertyPath: OnEnter.m_PersistentCalls.m_Calls.Array.size

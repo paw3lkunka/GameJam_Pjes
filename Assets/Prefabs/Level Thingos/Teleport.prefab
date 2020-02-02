@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5197947982173853866}
   - component: {fileID: 6779763445245164869}
-  m_Layer: 8
+  - component: {fileID: 2319429755407972938}
+  m_Layer: 0
   m_Name: Inside
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3086449727732315082}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.184, z: 0}
+  m_LocalPosition: {x: 0.021118471, y: -0.17414282, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1017763538723067362}
@@ -81,6 +82,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2319429755407972938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3086449727732315082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8918e849408f1b41970940fdf31884c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4574445072406502261
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,7 +106,7 @@ GameObject:
   - component: {fileID: 3241459716428694633}
   - component: {fileID: 6306026324087148368}
   - component: {fileID: 658647433006774189}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Teleport
   m_TagString: Untagged
   m_Icon: {fileID: 0}

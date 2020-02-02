@@ -40,14 +40,14 @@ public class Player : MonoBehaviour
     private int currJumpLimit;
 
     private new Rigidbody2D rigidbody;
-    private BoxCollider2D boxCollider2d;
+    private Collider2D collider2d;
     
     #region MonoBehaviour
 
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
-        boxCollider2d = GetComponent<BoxCollider2D>();
+        collider2d = GetComponent<Collider2D>();
         currJumpLimit = jumpLimit;
     }
 
@@ -175,7 +175,7 @@ public class Player : MonoBehaviour
 
     private bool IsGrounded()
     {
-        var raycastHit2d = Physics2D.BoxCast(boxCollider2d.bounds.center, boxCollider2d.bounds.size, 0.0f, Vector2.down, 0.1f, ~playerLayerMask);
+        var raycastHit2d = Physics2D.CapsuleCast(collider2d.bounds.center, collider2d.bounds.size, CapsuleDirection2D.Horizontal, 0.0f, Vector2.down, 0.1f, ~playerLayerMask);
         return raycastHit2d.collider != null;
     }
 

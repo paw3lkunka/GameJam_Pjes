@@ -9,7 +9,6 @@ public class Finish : MonoBehaviour
         if( collision.GetComponent<Player>() )
         {
             GameManager.Instance.NextLevel();
-            Debug.Log("A NEW LEVEL!");
         }
     }
 }

@@ -6,13 +6,14 @@ using UnityEngine;
 public class Laser : MonoBehaviour
 {
     public float direction;
+    public GameObject head;
 
     private LineRenderer lineRenderer;
 
     protected void OnValidate()
     {
         lineRenderer = GetComponent<LineRenderer>();
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, DirVector, 100);
+        RaycastHit2D hit = Physics2D.Raycast(head.transform.position, DirVector, 100);
         SetLine(hit);
     }
 
@@ -23,7 +24,7 @@ public class Laser : MonoBehaviour
 
     protected void Update()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, DirVector, float.PositiveInfinity);
+        RaycastHit2D hit = Physics2D.Raycast(head.transform.position, DirVector, float.PositiveInfinity);
         SetLine(hit);
         try
         {
@@ -37,7 +38,8 @@ public class Laser : MonoBehaviour
     protected Vector2 DirVector => new Vector2(Mathf.Cos(direction * Mathf.Deg2Rad), Mathf.Sin(direction * Mathf.Deg2Rad));
     protected void SetLine(RaycastHit2D hit)
     {
-        lineRenderer.SetPosition(0, transform.position);
+        head.transform.rotation = Quaternion.AngleAxis(direction - 90, Vector3.forward);
+        lineRenderer.SetPosition(0, head.transform.position);
         lineRenderer.SetPosition(1, hit.collider != null ? (Vector3)hit.point + (Vector3)((hit.point-(Vector2)transform.position).normalized * lineRenderer.widthCurve.keys[0].value) : transform.position + (Vector3)DirVector * 100);
     }
 

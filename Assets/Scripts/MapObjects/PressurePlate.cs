@@ -8,15 +8,26 @@ public class PressurePlate : MonoBehaviour
     private Sprite plateImage;
     [SerializeField]
     private Sprite pressedPlateImage;
+    [SerializeField,ReadOnly]
     private int itemsPressingCount = 0;
+
+    private OnOffSwitch _switch;
+    private SpriteRenderer _renderer;
+
+    private void Awake()
+    {
+        _switch = GetComponent<OnOffSwitch>();
+        _renderer = GetComponent<SpriteRenderer>();
+    }
+
 
     void OnTriggerEnter2D()
     {
         itemsPressingCount++;
         if(itemsPressingCount == 1)
         {
-            GetComponent<OnOffSwitch>().On();
-            GetComponent<SpriteRenderer>().sprite = pressedPlateImage;
+            _switch.On();
+            _renderer.sprite = pressedPlateImage;
         }
     }
 
@@ -25,8 +36,8 @@ public class PressurePlate : MonoBehaviour
         itemsPressingCount--;
         if(itemsPressingCount == 0)
         {
-            GetComponent<OnOffSwitch>().Off();
-            GetComponent<SpriteRenderer>().sprite = plateImage;
+            _switch.Off();
+            _renderer.sprite = plateImage;
         }
     }
 }

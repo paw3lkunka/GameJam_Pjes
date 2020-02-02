@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 0
+  head: {fileID: 9185945319628607277}
   active: 0
   OnEnter:
     m_PersistentCalls:
@@ -27,6 +28,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4861346281057289836, guid: b55fb438326139347819966302b07185,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861346281057289836, guid: b55fb438326139347819966302b07185,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900435886233118264, guid: b55fb438326139347819966302b07185,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5900435886233118265, guid: b55fb438326139347819966302b07185,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -85,22 +101,22 @@ PrefabInstance:
     - target: {fileID: 5900435886233118267, guid: b55fb438326139347819966302b07185,
         type: 3}
       propertyPath: m_Positions.Array.data[1].x
-      value: 8.259393
+      value: 4.039239
       objectReference: {fileID: 0}
     - target: {fileID: 5900435886233118267, guid: b55fb438326139347819966302b07185,
         type: 3}
       propertyPath: m_Positions.Array.data[1].y
-      value: -3.462487
+      value: -3.685017
       objectReference: {fileID: 0}
     - target: {fileID: 5900435886233118267, guid: b55fb438326139347819966302b07185,
         type: 3}
       propertyPath: m_Positions.Array.data[0].x
-      value: 3.2268686
+      value: 3.2378685
       objectReference: {fileID: 0}
     - target: {fileID: 5900435886233118267, guid: b55fb438326139347819966302b07185,
         type: 3}
       propertyPath: m_Positions.Array.data[0].y
-      value: -3.462487
+      value: -3.616487
       objectReference: {fileID: 0}
     - target: {fileID: 5900435886233118267, guid: b55fb438326139347819966302b07185,
         type: 3}
@@ -118,6 +134,12 @@ PrefabInstance:
 --- !u!1 &4587659064151910207 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5900435886233118269, guid: b55fb438326139347819966302b07185,
+    type: 3}
+  m_PrefabInstance: {fileID: 7946650685502931202}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9185945319628607277 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1239374079512038959, guid: b55fb438326139347819966302b07185,
     type: 3}
   m_PrefabInstance: {fileID: 7946650685502931202}
   m_PrefabAsset: {fileID: 0}

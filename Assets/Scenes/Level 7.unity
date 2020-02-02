@@ -1080,7 +1080,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -1566,6 +1566,15 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741825
+  - first: {x: 2, y: 3, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 3
+      m_TileSpriteIndex: 3
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      m_AllTileFlags: 1073741825
   - first: {x: 7, y: 3, z: 0}
     second:
       serializedVersion: 2
@@ -1587,8 +1596,8 @@ Tilemap:
   - first: {x: 2, y: 4, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 7
-      m_TileSpriteIndex: 7
+      m_TileIndex: 6
+      m_TileSpriteIndex: 6
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1646,15 +1655,15 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 7
     m_Data: {fileID: 11400000, guid: dac8b0ce71c3d9c40bb6c6cf94d2827b, type: 2}
-  - m_RefCount: 2
+  - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: ebe58770193d7c44a801dd2e33bde2da, type: 2}
   - m_RefCount: 23
     m_Data: {fileID: 11400000, guid: 63713b0199f30ff449a8a657fb91e69b, type: 2}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: d5fe9c2a9c4aac14ba9f25648709101f, type: 2}
-  - m_RefCount: 2
+  - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: c09413e2ec19fe44ab1ce50ec4a24312, type: 2}
-  - m_RefCount: 14
+  - m_RefCount: 13
     m_Data: {fileID: 11400000, guid: 141736743473c2f408e737e95a048ac5, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 10
@@ -1663,18 +1672,18 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 7
     m_Data: {fileID: 21300000, guid: 4bd0bbf843c978744b7332fa7d5e2053, type: 3}
-  - m_RefCount: 2
+  - m_RefCount: 3
     m_Data: {fileID: 21300000, guid: 2f3bcef6a23e95a44bdc58c9fa599d99, type: 3}
   - m_RefCount: 23
     m_Data: {fileID: 21300000, guid: 8391c2860ea031a4e92488925739e65e, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 21300000, guid: b9e793008611ca54887d25968c35cf82, type: 3}
-  - m_RefCount: 2
+  - m_RefCount: 3
     m_Data: {fileID: 21300000, guid: 9e591a2f7ee94724885d14989ccd79ed, type: 3}
-  - m_RefCount: 14
+  - m_RefCount: 13
     m_Data: {fileID: 21300000, guid: 9771416dac6d03e46b6eddd567c4843e, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 57
+  - m_RefCount: 58
     m_Data:
       e00: 1
       e01: 0
@@ -1729,7 +1738,7 @@ Tilemap:
       e32: 0
       e33: 0
   m_TileColorArray:
-  - m_RefCount: 60
+  - m_RefCount: 61
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -1770,7 +1779,7 @@ PrefabInstance:
     - target: {fileID: 1017763538723067362, guid: 50aceb0891e626649ba15310cf915cb0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.99
+      value: -2.3
       objectReference: {fileID: 0}
     - target: {fileID: 1017763538723067362, guid: 50aceb0891e626649ba15310cf915cb0,
         type: 3}
@@ -2660,7 +2669,7 @@ PrefabInstance:
     - target: {fileID: 1017763538723067362, guid: 50aceb0891e626649ba15310cf915cb0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.01
+      value: -2.3
       objectReference: {fileID: 0}
     - target: {fileID: 1017763538723067362, guid: 50aceb0891e626649ba15310cf915cb0,
         type: 3}
@@ -2746,7 +2755,7 @@ PrefabInstance:
     - target: {fileID: 1017763538723067362, guid: 50aceb0891e626649ba15310cf915cb0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.99
+      value: 2.7
       objectReference: {fileID: 0}
     - target: {fileID: 1017763538723067362, guid: 50aceb0891e626649ba15310cf915cb0,
         type: 3}
@@ -2820,7 +2829,7 @@ PrefabInstance:
     - target: {fileID: 1017763538723067362, guid: 50aceb0891e626649ba15310cf915cb0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.69
+      value: 4.4
       objectReference: {fileID: 0}
     - target: {fileID: 1017763538723067362, guid: 50aceb0891e626649ba15310cf915cb0,
         type: 3}

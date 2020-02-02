@@ -12,6 +12,9 @@ public class RandomizeInputSwitch : Switch
 
     private System.Random rand;
 
+    private Color32 buttonOff = new Color32(255, 0, 0, 255);
+    private Color32 buttonOn = new Color32(0, 255, 0, 255);
+
 
     [field: SerializeField, ReadOnly]
     public bool State { get; protected set; }
@@ -34,12 +37,14 @@ public class RandomizeInputSwitch : Switch
 
     public void On()
     {
+        gameObject.GetComponent<SpriteRenderer>().color = buttonOn;
         TurnOn.Invoke();
         State = true;
     }
 
     public void Off()
     {
+        gameObject.GetComponent<SpriteRenderer>().color = buttonOff;
         TurnOff.Invoke();
         State = false;
     }

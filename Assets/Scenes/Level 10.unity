@@ -383,18 +383,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1c216a5ffea1094fa87116057c074fe, type: 3}
---- !u!114 &180834231 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6880042926615171226, guid: 02add7bb8da231c479dc5657593e69da,
-    type: 3}
-  m_PrefabInstance: {fileID: 1321983535}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5c724dd6efb1cf4dbf9a10c6fac4644, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &185660289
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -879,7 +867,7 @@ PrefabInstance:
     - target: {fileID: 4070238394797795958, guid: 56bbb5699afe5654c831549cd484ac1e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4212155118198677305, guid: 56bbb5699afe5654c831549cd484ac1e,
         type: 3}
@@ -968,7 +956,7 @@ PrefabInstance:
     - target: {fileID: 410793247804395721, guid: 00d99048f46ce804b8547b6057d7334a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 410793247804395721, guid: 00d99048f46ce804b8547b6057d7334a,
         type: 3}
@@ -2142,7 +2130,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.3137255, g: 0.32156864, b: 0.34901962, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2244,7 +2232,7 @@ PrefabInstance:
     - target: {fileID: 5900435886233118265, guid: b55fb438326139347819966302b07185,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5900435886233118265, guid: b55fb438326139347819966302b07185,
         type: 3}
@@ -2584,7 +2572,7 @@ PrefabInstance:
         type: 3}
       propertyPath: TurnOn.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 180834231}
+      objectReference: {fileID: 0}
     - target: {fileID: 8848820409463358312, guid: 95a70f73de99b1e4587ee50ff2ca3e07,
         type: 3}
       propertyPath: TurnOn.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName

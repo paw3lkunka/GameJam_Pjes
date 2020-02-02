@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Exit
+  m_text: 3X1T
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6ff32b0c3e80a8c46b05166b38b965fd, type: 2}
   m_sharedMaterial: {fileID: 1002296193039273739, guid: 6ff32b0c3e80a8c46b05166b38b965fd,
@@ -443,7 +443,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Start
+  m_text: 5T4RT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6ff32b0c3e80a8c46b05166b38b965fd, type: 2}
   m_sharedMaterial: {fileID: 1002296193039273739, guid: 6ff32b0c3e80a8c46b05166b38b965fd,
@@ -1197,7 +1197,7 @@ PrefabInstance:
     - target: {fileID: 8585885334094559363, guid: 97b19a2bb50dc884d8a7de7868635605,
         type: 3}
       propertyPath: levelScenesNames.Array.data[5]
-      value: Level 4
+      value: Level 6
       objectReference: {fileID: 0}
     - target: {fileID: 8585885334094559363, guid: 97b19a2bb50dc884d8a7de7868635605,
         type: 3}
@@ -1212,7 +1212,7 @@ PrefabInstance:
     - target: {fileID: 8585885334094559363, guid: 97b19a2bb50dc884d8a7de7868635605,
         type: 3}
       propertyPath: levelScenesNames.Array.data[8]
-      value: Level 4
+      value: Level 9
       objectReference: {fileID: 0}
     - target: {fileID: 8585885334094559363, guid: 97b19a2bb50dc884d8a7de7868635605,
         type: 3}

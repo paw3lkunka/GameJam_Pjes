@@ -430,7 +430,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_spriteAsset: {fileID: 0}
   m_material: {fileID: 0}
   m_sharedMaterial: {fileID: 0}
@@ -578,10 +578,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "YOU MADE IT TO THE END! CONGRATULATIONS!\n\nThis game was created during
-    \"\u0141\xF3dzki Game Jam 7\" - a part of Global Game Jam 2020\n\nCreators:\nMagdalena
-    Rogalska, Magdalena J\xF3\u017Awiak, Andrzej Miszczak\nPawe\u0142 Kunka, Krzysztof
-    Szcze\u015Bniewski"
+  m_text: 'YOU MADE IT TO THE END! CONGRATULATIONS!
+
+
+    This game was created during
+    "Lodzki Game Jam 7" - a part of Global Game Jam 2020
+
+
+    Creators:
+
+    Magdalena
+    Rogalska, Magdalena Jozwiak, Andrzej Miszczak
+
+    Pawel Kunka, Krzysztof Szczesniewski'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6ff32b0c3e80a8c46b05166b38b965fd, type: 2}
   m_sharedMaterial: {fileID: 1002296193039273739, guid: 6ff32b0c3e80a8c46b05166b38b965fd,
@@ -658,7 +667,7 @@ MonoBehaviour:
     linkCount: 0
     lineCount: 8
     pageCount: 1
-    materialCount: 3
+    materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}

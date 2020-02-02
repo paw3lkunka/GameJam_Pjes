@@ -190,19 +190,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5875683725571078742}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8585885334094559363, guid: 97b19a2bb50dc884d8a7de7868635605,
-          type: 3}
-        m_MethodName: ReloadLevel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &5875683725671218438
 GameObject:
   m_ObjectHideFlags: 0
